@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+$body-family: "Lato", sans-serif;
+$title-family: "Oswald", sans-serif;
+
+@import "src/components/navbar/navbar.scss";
+
+@import "src/components/footer/footer.scss";
+
+@import "~bulma/bulma.sass";
+
+.is-default-font {
+  font-family: $family-primary;
+}
+
+:empty.divider:before {
+  margin-right: 0;
+}
+:empty.divider:after {
+  margin-left: 0;
+}
+
+hr.divider {
+  border-top: 2px solid #0b2c51;
+}
+
+hr.small-divider {
+  border-top: 4px solid #f89400;
+  width: 70px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.leaflet-container {
+  height: 400px;
+  width: 600px;
+  z-index: 1;
+}
+
+.block-transformation:hover {
+  transform: translate3D(0, -1px, 0) scale(1.03);
+  transition-duration: 0.2s;
+}
+
+.background-hero {
+  background-size: cover;
+  background: url("../images/home2.jpg") no-repeat local center center;
+}
