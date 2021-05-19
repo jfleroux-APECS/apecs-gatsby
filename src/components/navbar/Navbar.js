@@ -1,17 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import logo from "../../images/logo.png";
 
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
-
-  // const location = useLocation();
-
-  const closeNavbar = function () {
-    const el = document.activeElement;
-    el?.classList?.contains("navbar-item") && el.blur();
-    setIsActive(false);
-  };
-
-  // useEffect(closeNavbar, [location.pathname]);
 
   return (
     <nav
@@ -20,18 +11,16 @@ function Navbar() {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a
-          className="navbar-item"
-          activeClassName="is-active"
-          href="/"
-          exact
-        >
+        <a className="navbar-item" activeClassName="is-active" href="/" exact>
           <img
-            src={process.env.PUBLIC_URL + "/logo.png"}
+            src={logo}
             height="150px"
             alt="A.P.E.C.S"
             className="block-transformation"
-          /> <div className="ml-4 title has-text-light has-text-weight-medium is-hidden-desktop">A.P.E.C.S</div>
+          />{" "}
+          <div className="ml-4 title has-text-light has-text-weight-medium is-hidden-desktop">
+            A.P.E.C.S
+          </div>
         </a>
 
         <a
@@ -65,14 +54,14 @@ function Navbar() {
               <a
                 className="navbar-item"
                 activeClassName="is-active"
-                href="/about"
+                href="/About"
               >
                 Nous connaître
               </a>
               <a
                 className="navbar-item"
                 activeClassName="is-active"
-                href="/missions"
+                href="/Missions"
               >
                 Nos missions
               </a>
@@ -88,21 +77,21 @@ function Navbar() {
               <a
                 className="navbar-item"
                 activeClassName="is-active"
-                href="/benevole"
+                href="/act/Benevole"
               >
                 Devenir bénévole
               </a>
               <a
                 className="navbar-item"
                 activeClassName="is-active"
-                href="/observations"
+                href="/act/Observations"
               >
                 Vos Observations
               </a>
               <a
                 className="navbar-item"
                 activeClassName="is-active"
-                href="/participer"
+                href="/act/Participer"
               >
                 Participer à nos actions
               </a>
@@ -118,28 +107,28 @@ function Navbar() {
               <a
                 className="navbar-item"
                 activeClassName="is-active"
-                href="/adhesion"
+                href="/support/adhesion/Adhesion"
               >
                 Adhérer
               </a>
               <a
                 className="navbar-item"
                 activeClassName="is-active"
-                href="/gift"
+                href="/support/gift/Gift"
               >
                 Faire un don
               </a>
               <a
                 className="navbar-item"
                 activeClassName="is-active"
-                href="/partnership"
+                href="/support/partnership/Partnership"
               >
                 Devenir partenaire
               </a>
               <a
                 className="navbar-item"
                 activeClassName="is-active"
-                href="/shop"
+                href="/support/shop/Shop"
               >
                 Boutique
               </a>
@@ -155,21 +144,21 @@ function Navbar() {
               <a
                 className="navbar-item"
                 activeClassName="is-active"
-                href="/actualites"
+                href="/inform/actualites/Actualites"
               >
                 Actualités
               </a>
               <a
                 className="navbar-item"
                 activeClassName="is-active"
-                href="/elasmobranches"
+                href="/inform/elasmobranches/Elasmobranches"
               >
                 Les élasmobranches
               </a>
               <a
                 className="navbar-item"
                 activeClassName="is-active"
-                href="/resources"
+                href="/inform/resources/resources"
               >
                 Médiathèque / Ressources
               </a>
@@ -185,14 +174,14 @@ function Navbar() {
               <a
                 className="navbar-item"
                 activeClassName="is-active"
-                href="/contact"
+                href="/contact/contact/Contact"
               >
                 Contact
               </a>
               <a
                 className="navbar-item"
                 activeClassName="is-active"
-                href="/press"
+                href="/contact/press/Press"
               >
                 Espace presse
               </a>

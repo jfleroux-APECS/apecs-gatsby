@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+.article-container {
+  min-width: 200px;
+}
+
+.notification.article-background {
+  background-color: #f5f5f5;
+}
+
+.notification.article-background.hidden {
+  display: none
+}
+
+.image.main-article-image > img {
+  max-height: 300px;
+}
