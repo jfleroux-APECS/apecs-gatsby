@@ -12,7 +12,13 @@ const IndexPage = () => {
     allWpPost: { edges: posts },
   } = useStaticQuery(graphql`
     query FirstPostQuery {
-      allWpPost(limit: 3, sort: { fields: [date], order: DESC }) {
+      allWpPost(
+        limit: 3
+        sort: { fields: [date], order: DESC }
+        filter: {
+          categories: { nodes: { elemMatch: { slug: { eq: "actualites" } } } }
+        }
+      ) {
         edges {
           node {
             id
@@ -55,7 +61,10 @@ const IndexPage = () => {
               sauvegarde du métier de pêcheur. Ce qui n’est pas une mince
               affaire.
             </h2>
-            <a className="button is-info block-transformation" href="/inform/elasmobranches/Elasmobranches">
+            <a
+              className="button is-info block-transformation"
+              href="/inform/elasmobranches/Elasmobranches"
+            >
               <strong>En savoir plus</strong>
             </a>
           </div>
@@ -135,7 +144,7 @@ const IndexPage = () => {
                     key={actualite.node.id}
                   >
                     <a
-                      href={`/actualites/${actualite.node.id}-${slugify(
+                      href={`/inform/actualites/${slugify(
                         actualite.node.title
                       )}`}
                       toto={JSON.stringify(actualite.node)}

@@ -11,7 +11,7 @@ import {
 } from "react-share";
 
 export default function SocialMedia(props) {
-  const location = window.location.href;
+  const location = "https://www.asso-apecs.org/";
 
   return (
     <div className="container">

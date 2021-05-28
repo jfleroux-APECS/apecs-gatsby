@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../images/logo.png";
+import "./navbar.scss";
 
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
@@ -11,7 +12,7 @@ function Navbar() {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a className="navbar-item" activeClassName="is-active" href="/" exact>
+        <a className="navbar-item" href="/" exact>
           <img
             src={logo}
             height="150px"
@@ -53,14 +54,12 @@ function Navbar() {
             <div className="navbar-dropdown">
               <a
                 className="navbar-item"
-                activeClassName="is-active"
                 href="/About"
               >
                 Nous connaître
               </a>
               <a
                 className="navbar-item"
-                activeClassName="is-active"
                 href="/Missions"
               >
                 Nos missions
@@ -76,21 +75,18 @@ function Navbar() {
             <div className="navbar-dropdown">
               <a
                 className="navbar-item"
-                activeClassName="is-active"
                 href="/act/Benevole"
               >
                 Devenir bénévole
               </a>
               <a
                 className="navbar-item"
-                activeClassName="is-active"
                 href="/act/Observations"
               >
                 Vos Observations
               </a>
               <a
                 className="navbar-item"
-                activeClassName="is-active"
                 href="/act/Participer"
               >
                 Participer à nos actions
@@ -106,28 +102,24 @@ function Navbar() {
             <div className="navbar-dropdown">
               <a
                 className="navbar-item"
-                activeClassName="is-active"
                 href="/support/adhesion/Adhesion"
               >
                 Adhérer
               </a>
               <a
                 className="navbar-item"
-                activeClassName="is-active"
                 href="/support/gift/Gift"
               >
                 Faire un don
               </a>
               <a
                 className="navbar-item"
-                activeClassName="is-active"
                 href="/support/partnership/Partnership"
               >
                 Devenir partenaire
               </a>
               <a
                 className="navbar-item"
-                activeClassName="is-active"
                 href="/support/shop/Shop"
               >
                 Boutique
@@ -143,21 +135,18 @@ function Navbar() {
             <div className="navbar-dropdown">
               <a
                 className="navbar-item"
-                activeClassName="is-active"
                 href="/inform/actualites/Actualites"
               >
                 Actualités
               </a>
               <a
                 className="navbar-item"
-                activeClassName="is-active"
                 href="/inform/elasmobranches/Elasmobranches"
               >
                 Les élasmobranches
               </a>
               <a
                 className="navbar-item"
-                activeClassName="is-active"
                 href="/inform/resources/resources"
               >
                 Médiathèque / Ressources
@@ -173,14 +162,12 @@ function Navbar() {
             <div className="navbar-dropdown">
               <a
                 className="navbar-item"
-                activeClassName="is-active"
                 href="/contact/contact/Contact"
               >
                 Contact
               </a>
               <a
                 className="navbar-item"
-                activeClassName="is-active"
                 href="/contact/press/Press"
               >
                 Espace presse
