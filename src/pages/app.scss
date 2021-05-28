@@ -43,7 +43,7 @@ hr.small-divider {
 }
 
 .background-hero {
-  background-size: cover;
+  background-size: cover !important;
   background: url("../images/home2.jpg") center center no-repeat fixed;
   background-attachment: local;
 }

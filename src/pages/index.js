@@ -44,11 +44,13 @@ const IndexPage = () => {
 
   return (
     <div id="home">
-      <section id="hero" className="hero is-success is-medium background-hero">
+      <section id="hero" className="hero is-medium background-hero">
         <div className="hero-body">
           <div className="container has-text-left">
-            <h1 className="title">Des espèces plus menacées que menaçantes</h1>
-            <h2 className="subtitle">
+            <h1 className="title has-text-white">
+              Des espèces plus menacées que menaçantes
+            </h1>
+            <h2 className="subtitle has-text-white">
               En général, lorsqu’une espèce marine est menacée, des mesures de
               conservation peuvent être mises en place pour assurer son maintien
               : interdiction de pêche, limitation des captures (quotas), taille
@@ -147,7 +149,6 @@ const IndexPage = () => {
                       href={`/inform/actualites/${slugify(
                         actualite.node.title
                       )}`}
-                      toto={JSON.stringify(actualite.node)}
                     >
                       <NewsCard
                         title={actualite.node.title}
