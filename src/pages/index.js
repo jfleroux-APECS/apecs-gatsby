@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 import sharkImg from "../images/shark_4590.png";
 import observationsImg from "../images/psksh.png";
 import giftImg from "../images/gift.png";
@@ -63,12 +63,12 @@ const IndexPage = () => {
               sauvegarde du métier de pêcheur. Ce qui n’est pas une mince
               affaire.
             </h2>
-            <a
+            <Link
               className="button is-info block-transformation"
-              href="/inform/elasmobranches/Elasmobranches"
+              to="/inform/elasmobranches/Elasmobranches"
             >
               <strong>En savoir plus</strong>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -80,55 +80,52 @@ const IndexPage = () => {
             <hr className="small-divider" />
             <div className="columns is-centered">
               <div className="column is-narrow is-one-third block-transformation">
-                {/*<NavLink*/}
-                {/*  className="container has-text-centered title"*/}
-                {/*  to="/adhesion"*/}
-                {/*>*/}
-                <p className="bd-notification is-primary has-text-centered">
-                  <img
-                    src={sharkImg}
-                    alt="Nous rejoindre"
-                    width="128px"
-                    height="128px"
-                  />
-                  <br />
-                </p>
-                <h3 className="title">Nous rejoindre</h3>
-                {/*</NavLink>*/}
+                <Link
+                  className="container has-text-centered title"
+                  to="/act/Benevole"
+                >
+                  <p className="bd-notification is-primary has-text-centered">
+                    <img
+                      src={sharkImg}
+                      alt="Nous rejoindre"
+                      width="128px"
+                      height="128px"
+                    />
+                    <br />
+                  </p>
+                  <h3 className="title">Nous rejoindre</h3>
+                </Link>
               </div>
               <div className="column is-narrow is-one-third block-transformation">
-                {/*<NavLink*/}
-                {/*  className="container has-text-centered title"*/}
-                {/*  to="/observations"*/}
-                {/*>*/}
-                <p className="bd-notification is-primary has-text-centered">
-                  <img
-                    src={observationsImg}
-                    alt="Vos observations"
-                    width="128px"
-                    height="128px"
-                  />
-                  <br />
-                </p>
-                <h3 className="title">Vos observations</h3>
-                {/*</NavLink>*/}
+                <Link
+                  className="container has-text-centered title"
+                  to="/act/Observations"
+                >
+                  <p className="bd-notification is-primary has-text-centered">
+                    <img
+                      src={observationsImg}
+                      alt="Vos observations"
+                      width="128px"
+                      height="128px"
+                    />
+                    <br />
+                  </p>
+                  <h3 className="title">Vos observations</h3>
+                </Link>
               </div>
               <div className="column is-narrow is-one-third block-transformation">
-                {/*<NavLink*/}
-                {/*  className="container has-text-centered title"*/}
-                {/*  to="/gift"*/}
-                {/*>*/}
-                <p className="bd-notification is-primary has-text-centered">
-                  <img
-                    src={giftImg}
-                    alt="Faire un don"
-                    width="128px"
-                    height="128px"
-                  />
-                  <br />
-                </p>
-                <h3 className="title">Faire un don</h3>
-                {/*</NavLink>*/}
+                <Link className="container has-text-centered title" to="/support/gift/Gift">
+                  <p className="bd-notification is-primary has-text-centered">
+                    <img
+                      src={giftImg}
+                      alt="Faire un don"
+                      width="128px"
+                      height="128px"
+                    />
+                    <br />
+                  </p>
+                  <h3 className="title">Faire un don</h3>
+                </Link>
               </div>
             </div>
           </div>
@@ -145,8 +142,8 @@ const IndexPage = () => {
                     className="column is-narrow is-one-third"
                     key={actualite.node.id}
                   >
-                    <a
-                      href={`/inform/actualites/${slugify(
+                    <Link
+                      to={`/inform/actualites/${slugify(
                         actualite.node.title
                       )}`}
                     >
@@ -155,7 +152,7 @@ const IndexPage = () => {
                         featuredImage={actualite.node.featuredImage}
                         date={actualite.node.date}
                       />
-                    </a>
+                    </Link>
                   </div>
                 ))}
               </div>

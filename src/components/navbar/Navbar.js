@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../images/logo.png";
 import "./navbar.scss";
+import { Link } from "gatsby";
 
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
@@ -12,7 +13,7 @@ function Navbar() {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a className="navbar-item" href="/" exact>
+        <Link className="navbar-item" to="/">
           <img
             src={logo}
             height="150px"
@@ -22,9 +23,9 @@ function Navbar() {
           <div className="ml-4 title has-text-light has-text-weight-medium is-hidden-desktop">
             A.P.E.C.S
           </div>
-        </a>
+        </Link>
 
-        <a
+        <Link
           onClick={() => {
             setIsActive(!isActive);
           }}
@@ -33,12 +34,12 @@ function Navbar() {
           aria-label="menu"
           aria-expanded="false"
           data-target="mainNavbar"
-          href="#top"
+          to="#top"
         >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
-        </a>
+        </Link>
       </div>
 
       <div
@@ -52,18 +53,12 @@ function Navbar() {
             </a>
 
             <div className="navbar-dropdown">
-              <a
-                className="navbar-item"
-                href="/About"
-              >
+              <Link className="navbar-item" to="/About">
                 Nous connaître
-              </a>
-              <a
-                className="navbar-item"
-                href="/Missions"
-              >
+              </Link>
+              <Link className="navbar-item" to="/Missions">
                 Nos missions
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -73,24 +68,15 @@ function Navbar() {
             </a>
 
             <div className="navbar-dropdown">
-              <a
-                className="navbar-item"
-                href="/act/Benevole"
-              >
+              <Link className="navbar-item" to="/act/Benevole">
                 Devenir bénévole
-              </a>
-              <a
-                className="navbar-item"
-                href="/act/Observations"
-              >
+              </Link>
+              <Link className="navbar-item" to="/act/Observations">
                 Vos Observations
-              </a>
-              <a
-                className="navbar-item"
-                href="/act/Participer"
-              >
+              </Link>
+              <Link className="navbar-item" to="/act/Participer">
                 Participer à nos actions
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -100,30 +86,21 @@ function Navbar() {
             </a>
 
             <div className="navbar-dropdown">
-              <a
-                className="navbar-item"
-                href="/support/adhesion/Adhesion"
-              >
+              <Link className="navbar-item" to="/support/adhesion/Adhesion">
                 Adhérer
-              </a>
-              <a
-                className="navbar-item"
-                href="/support/gift/Gift"
-              >
+              </Link>
+              <Link className="navbar-item" to="/support/gift/Gift">
                 Faire un don
-              </a>
-              <a
+              </Link>
+              <Link
                 className="navbar-item"
-                href="/support/partnership/Partnership"
+                to="/support/partnership/Partnership"
               >
                 Devenir partenaire
-              </a>
-              <a
-                className="navbar-item"
-                href="/support/shop/Shop"
-              >
+              </Link>
+              <Link className="navbar-item" to="/support/shop/Shop">
                 Boutique
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -133,24 +110,18 @@ function Navbar() {
             </a>
 
             <div className="navbar-dropdown">
-              <a
-                className="navbar-item"
-                href="/inform/actualites/Actualites"
-              >
+              <Link className="navbar-item" to="/inform/actualites/Actualites">
                 Actualités
-              </a>
-              <a
+              </Link>
+              <Link
                 className="navbar-item"
-                href="/inform/elasmobranches/Elasmobranches"
+                to="/inform/elasmobranches/Elasmobranches"
               >
                 Les élasmobranches
-              </a>
-              <a
-                className="navbar-item"
-                href="/inform/resources/resources"
-              >
+              </Link>
+              <Link className="navbar-item" to="/inform/resources/resources">
                 Médiathèque / Ressources
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -160,18 +131,12 @@ function Navbar() {
             </a>
 
             <div className="navbar-dropdown">
-              <a
-                className="navbar-item"
-                href="/contact/contact/Contact"
-              >
+              <Link className="navbar-item" to="/contact/contact/Contact">
                 Contact
-              </a>
-              <a
-                className="navbar-item"
-                href="/contact/press/Press"
-              >
+              </Link>
+              <Link className="navbar-item" to="/contact/press/Press">
                 Espace presse
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -179,12 +144,12 @@ function Navbar() {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-              <a className="button block-transformation" href="/gift">
+              <Link className="button block-transformation" to="/support/gift/Gift">
                 <strong>Faire un don</strong>
-              </a>
-              <a className="button is-light block-transformation" href="/shop">
+              </Link>
+              <Link className="button is-light block-transformation" to="/support/shop/Shop">
                 <strong>Boutique</strong>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

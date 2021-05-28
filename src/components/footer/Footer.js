@@ -2,6 +2,7 @@ import React from "react";
 import FacebookIcon from "../../images/svg/facebook.svg";
 import TwitterIcon from "../../images/svg/twitter.svg";
 import YoutubeIcon from "../../images/svg/youtube.svg";
+import { Link } from "gatsby";
 
 function Footer() {
   return (
@@ -9,14 +10,14 @@ function Footer() {
       <div className="content has-text-centered">
         <div className="columns is-vcentered">
           <div className="column is-uppercase block-transformation">
-            <a className="container has-text-centered" href="/contact">
+            <Link className="container has-text-centered" to="/contact/contact/Contact">
               <strong className="has-text-white">Contactez-nous</strong>
-            </a>
+            </Link>
           </div>
           <div className="column is-uppercase block-transformation">
-            <a className="container has-text-centered" href="/mentions">
+            <Link className="container has-text-centered" to="/contact/contact/Contact">
               <strong className="has-text-white">Mentions légales</strong>
-            </a>
+            </Link>
           </div>
           <div className="column">
             <span className="icon is-medium">
