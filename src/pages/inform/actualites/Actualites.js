@@ -1,7 +1,8 @@
 import React from "react";
 import NewsCard from "../../../components/news-card/News-card";
 import { chunk } from "lodash";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
+import slugify from "../../../utils/Slugify";
 
 export default function Actualites() {
   const {
@@ -48,9 +49,9 @@ export default function Actualites() {
         <div className="tile is-ancestor" key={index}>
           {chunk.map((article) => (
             <div className="tile is-parent" key={article.node.id}>
-              <a
+              <Link
                 className="tile is-child"
-                href={`/actualites/${article.node.id}-${article.node.title}`}
+                to={`/inform/actualites/${slugify(article.node.title)}`}
               >
                 <NewsCard
                   title={article.node.title}
@@ -58,7 +59,7 @@ export default function Actualites() {
                   date={article.node.date}
                   content={article.node.content.substring(0, 500).concat("...")}
                 />
-              </a>
+              </Link>
             </div>
           ))}
         </div>

@@ -10,12 +10,18 @@ function Footer() {
       <div className="content has-text-centered">
         <div className="columns is-vcentered">
           <div className="column is-uppercase block-transformation">
-            <Link className="container has-text-centered" to="/contact/contact/Contact">
+            <Link
+              className="container has-text-centered"
+              to="/contact/contact/Contact"
+            >
               <strong className="has-text-white">Contactez-nous</strong>
             </Link>
           </div>
           <div className="column is-uppercase block-transformation">
-            <Link className="container has-text-centered" to="/contact/contact/Contact">
+            <Link
+              className="container has-text-centered"
+              to="/contact/contact/Contact"
+            >
               <strong className="has-text-white">Mentions légales</strong>
             </Link>
           </div>

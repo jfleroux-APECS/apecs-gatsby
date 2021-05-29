@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logo from "../../images/logo.png";
 import "./navbar.scss";
 import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
@@ -16,9 +17,10 @@ function Navbar() {
         <Link className="navbar-item" to="/">
           <img
             src={logo}
-            height="150px"
+            height={150}
+            width={131}
             alt="A.P.E.C.S"
-            className="block-transformation"
+            className="block-transformation nav-logo"
           />{" "}
           <div className="ml-4 title has-text-light has-text-weight-medium is-hidden-desktop">
             A.P.E.C.S
@@ -144,10 +146,16 @@ function Navbar() {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-              <Link className="button block-transformation" to="/support/gift/Gift">
+              <Link
+                className="button block-transformation"
+                to="/support/gift/Gift"
+              >
                 <strong>Faire un don</strong>
               </Link>
-              <Link className="button is-light block-transformation" to="/support/shop/Shop">
+              <Link
+                className="button is-light block-transformation"
+                to="/support/shop/Shop"
+              >
                 <strong>Boutique</strong>
               </Link>
             </div>

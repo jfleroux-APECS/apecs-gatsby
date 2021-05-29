@@ -1,6 +1,6 @@
 import React from "react";
 import Article from "../components/article/Article";
-import { graphql } from 'gatsby'
+import { graphql, Link } from "gatsby";
 
 export const pageQuery = graphql`
   query ActuPostById(
@@ -35,16 +35,14 @@ export default function ActualitesTemplate({ data: { post } }) {
   const featuredImage = {
     fluid: post.featuredImage?.node?.localFile?.childImageSharp?.fluid,
     alt: post.featuredImage?.node?.alt || ``,
-  }
+  };
 
   return (
     <div className="container mt-4">
       <nav className="breadcrumb" aria-label="breadcrumbs">
         <ul>
           <li>
-            <a to="/" exact>
-              APECS
-            </a>
+            <Link to="/">APECS</Link>
           </li>
           <li>
             <a href="/inform/actualites/Actualites">Actualités</a>

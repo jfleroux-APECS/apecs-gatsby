@@ -33,6 +33,7 @@ module.exports = {
     },
     "gatsby-plugin-react-leaflet",
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
   ],
 };

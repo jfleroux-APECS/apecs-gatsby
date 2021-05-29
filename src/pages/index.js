@@ -1,11 +1,9 @@
 import * as React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
-import sharkImg from "../images/shark_4590.png";
-import observationsImg from "../images/psksh.png";
-import giftImg from "../images/gift.png";
 import "./app.scss";
 import NewsCard from "../components/news-card/News-card";
 import slugify from "../utils/Slugify";
+import { StaticImage } from "gatsby-plugin-image";
 
 const IndexPage = () => {
   const {
@@ -85,11 +83,11 @@ const IndexPage = () => {
                   to="/act/Benevole"
                 >
                   <p className="bd-notification is-primary has-text-centered">
-                    <img
-                      src={sharkImg}
+                    <StaticImage
+                      src="../images/shark_4590.png"
                       alt="Nous rejoindre"
-                      width="128px"
-                      height="128px"
+                      width={128}
+                      height={128}
                     />
                     <br />
                   </p>
@@ -102,11 +100,11 @@ const IndexPage = () => {
                   to="/act/Observations"
                 >
                   <p className="bd-notification is-primary has-text-centered">
-                    <img
-                      src={observationsImg}
+                    <StaticImage
+                      src="../images/psksh.png"
                       alt="Vos observations"
-                      width="128px"
-                      height="128px"
+                      width={128}
+                      height={128}
                     />
                     <br />
                   </p>
@@ -114,13 +112,16 @@ const IndexPage = () => {
                 </Link>
               </div>
               <div className="column is-narrow is-one-third block-transformation">
-                <Link className="container has-text-centered title" to="/support/gift/Gift">
+                <Link
+                  className="container has-text-centered title"
+                  to="/support/gift/Gift"
+                >
                   <p className="bd-notification is-primary has-text-centered">
-                    <img
-                      src={giftImg}
+                    <StaticImage
+                      src="../images/gift.png"
                       alt="Faire un don"
-                      width="128px"
-                      height="128px"
+                      width={128}
+                      height={128}
                     />
                     <br />
                   </p>
@@ -143,9 +144,7 @@ const IndexPage = () => {
                     key={actualite.node.id}
                   >
                     <Link
-                      to={`/inform/actualites/${slugify(
-                        actualite.node.title
-                      )}`}
+                      to={`/inform/actualites/${slugify(actualite.node.title)}`}
                     >
                       <NewsCard
                         title={actualite.node.title}

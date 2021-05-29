@@ -1,5 +1,5 @@
 export default function slugify(toBeSlugified) {
-  if(!toBeSlugified) {
+  if (!toBeSlugified) {
     return;
   }
   const charactersToReplace =

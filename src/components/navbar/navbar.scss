@@ -16,7 +16,7 @@ a.navbar-burger:hover {
 }
 
 @media screen and (max-width: 1024px) {
-  .navbar-item img {
+  .nav-logo {
     max-height: 50px !important;
   }
 }
@@ -26,7 +26,7 @@ a.navbar-burger:hover {
     max-height: 3.25rem;
   }
 
-  .navbar-item img {
+  .nav-logo {
     margin-top: auto;
     max-height: 150px !important;
   }
