@@ -16,7 +16,7 @@ module.exports = {
         url:
           // allows a fallback url if WPGRAPHQL_URL is not set in the env, this may be a local or remote WP instance.
           process.env.WPGRAPHQL_URL ||
-          `http://localhost:8080/index.php?graphql`,
+          `https://wp.asso-apecs.org/index.php?graphql`,
         develop: {
           //caches media files outside of Gatsby's default cache an thus allows them to persist through a cache reset.
           hardCacheMediaFiles: true,
