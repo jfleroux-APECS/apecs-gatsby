@@ -34,7 +34,7 @@ jobs:
         npm run build
 
       # Setup and configure gcloud CLI
-    - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+    - uses: google-github-actions/setup-gcloud@master
       with:
         version: '334.0.0'
         project_id: ${{ secrets.PROJECT_ID }}
