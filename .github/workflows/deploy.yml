@@ -7,9 +7,9 @@ name: Build and Deploy
 on:
   workflow_dispatch:
   push:
-    branches: [ master ]
+    branches: [master]
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -20,28 +20,55 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Checkout
-      uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v1
 
-    - name: Setup Node
-      uses: actions/setup-node@v1
-      with:
-        node-version: '14.x'
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
-    - name: Build
-      run: |
-        npm ci
-        npm run build
+      - name: Caching Gatsby
+        id: gatsby-cache-build
+        uses: actions/cache@v2
+        with:
+          path: |
+            public
+            .cache
+            .wordpress-cache
+          key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-gatsby-build-
 
-      # Setup and configure gcloud CLI
-    - uses: google-github-actions/setup-gcloud@master
-      with:
-        version: '334.0.0'
-        project_id: ${{ secrets.PROJECT_ID }}
-        service_account_email: ${{ secrets.gcloud_email }}
-        service_account_key: ${{ secrets.gcloud_key}}
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
 
-    # Deploy App to App Engine
-    - name: Publish app to Google App Engine
-      run: |
-        gcloud -q app deploy app.yaml --promote --quiet --version=1
+      - name: Build
+        run: |
+          npm ci
+          npm run build
+        env:
+          GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
+          CI: true
+
+        # Setup and configure gcloud CLI
+      - uses: google-github-actions/setup-gcloud@master
+        with:
+          version: "334.0.0"
+          project_id: ${{ secrets.PROJECT_ID }}
+          service_account_email: ${{ secrets.gcloud_email }}
+          service_account_key: ${{ secrets.gcloud_key}}
+
+      # Deploy App to App Engine
+      - name: Publish app to Google App Engine
+        run: |
+          gcloud -q app deploy app.yaml --promote --quiet --version=1
