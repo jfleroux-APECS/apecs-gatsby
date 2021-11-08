@@ -1,17 +1,15 @@
 import React from "react";
-import Article from "../../components/article/Article";
 import { graphql, useStaticQuery } from "gatsby";
+import Article from "../../components/article/Article";
 
-export default function Participer() {
+export default function NosEquipes() {
   const {
     allWpPost: { edges: posts },
   } = useStaticQuery(graphql`
-    query ParticiperPostQuery {
+    query NosEquipesPostQuery {
       allWpPost(
         filter: {
-          categories: {
-            nodes: { elemMatch: { slug: { eq: "participer-a-nos-actions" } } }
-          }
+          categories: { nodes: { elemMatch: { slug: { eq: "equipes" } } } }
         }
       ) {
         edges {
@@ -40,15 +38,13 @@ export default function Participer() {
 
   return (
     <div className="container">
-      <h1 className="title is-2 mt-4 has-text-centered">
-        Participer à nos actions
-      </h1>
+      <h1 className="title is-2 mt-4 has-text-centered">Nos équipes</h1>
       <hr className="divider" />
-      {posts.map((participate, index) => (
-        <div key={participate.node.id}>
+      {posts.map((equipe, index) => (
+        <div key={equipe.node.id}>
           <Article
-            title={participate.node.title}
-            content={participate.node.content}
+            title={equipe.node.title}
+            content={equipe.node.content}
           ></Article>
           <div className="divider is-info" />
         </div>

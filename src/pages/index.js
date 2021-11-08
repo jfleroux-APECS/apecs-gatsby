@@ -14,7 +14,7 @@ const IndexPage = () => {
         limit: 3
         sort: { fields: [date], order: DESC }
         filter: {
-          categories: { nodes: { elemMatch: { slug: { eq: "actualites" } } } }
+          categories: { nodes: { elemMatch: { slug: { eq: "actions" } } } }
         }
       ) {
         edges {
@@ -135,21 +135,21 @@ const IndexPage = () => {
         <div className="columns is-centered mt-6">
           <div className="column has-text-centered">
             <div className="container">
-              <h1 className="title">Actualités</h1>
+              <h1 className="title">NOS ACTIONS</h1>
               <hr className="small-divider" />
               <div className="columns is-centered">
-                {posts.map((actualite) => (
+                {posts.map((action) => (
                   <div
                     className="column is-narrow is-one-third"
-                    key={actualite.node.id}
+                    key={action.node.id}
                   >
                     <Link
-                      to={`/inform/actualites/${slugify(actualite.node.title)}`}
+                      to={`/actions/${slugify(action.node.title)}`}
                     >
                       <NewsCard
-                        title={actualite.node.title}
-                        featuredImage={actualite.node.featuredImage}
-                        date={actualite.node.date}
+                        title={action.node.title}
+                        featuredImage={action.node.featuredImage}
+                        date={action.node.date}
                       />
                     </Link>
                   </div>

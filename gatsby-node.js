@@ -8,23 +8,23 @@ const path = require(`path`);
  */
 exports.createPages = async (gatsbyUtilities) => {
   // Query our posts from the GraphQL server
-  const actualites = await getActualitesPosts(gatsbyUtilities);
+  const actions = await getActionsPosts(gatsbyUtilities);
 
-  console.log(`creating ${actualites.length} pages`);
+  console.log(`creating ${actions.length} pages`);
 
   // If there are no posts in WordPress, don't do anything
-  if (!actualites.length) {
+  if (!actions.length) {
     return;
   }
 
   // If there are posts, create pages for them
-  await createActualitesPages({ posts: actualites, gatsbyUtilities });
+  await createActionsPages({ posts: actions, gatsbyUtilities });
 };
 
 /**
  * This function creates all the individual blog pages in this site
  */
-const createActualitesPages = async ({ posts, gatsbyUtilities }) =>
+const createActionsPages = async ({ posts, gatsbyUtilities }) =>
   Promise.all(
     posts.map(({ previous, post, next }) =>
       // createPage is an action passed to createPages
@@ -32,10 +32,10 @@ const createActualitesPages = async ({ posts, gatsbyUtilities }) =>
       gatsbyUtilities.actions.createPage({
         // Use the WordPress uri as the Gatsby page path
         // This is a good idea so that internal links and menus work 👍
-        path: `/inform/actualites/${slugify(post.title)}`,
+        path: `/actions/${slugify(post.title)}`,
 
         // use the blog post template as the page component
-        component: path.resolve(`./src/templates/actualites.template.js`),
+        component: path.resolve(`./src/templates/actions.template.js`),
 
         // `context` is available in the template as a prop and
         // as a variable in GraphQL.
@@ -61,14 +61,14 @@ const createActualitesPages = async ({ posts, gatsbyUtilities }) =>
  * We're passing in the utilities we got from createPages.
  * So see https://www.gatsbyjs.com/docs/node-apis/#createPages for more info!
  */
-async function getActualitesPosts({ graphql, reporter }) {
+async function getActionsPosts({ graphql, reporter }) {
   const graphqlResult = await graphql(/* GraphQL */ `
     query WpPosts {
       # Query all WordPress blog posts sorted by date
       allWpPost(
         sort: { fields: [date], order: DESC }
         filter: {
-          categories: { nodes: { elemMatch: { slug: { eq: "actualites" } } } }
+          categories: { nodes: { elemMatch: { slug: { eq: "actions" } } } }
         }
       ) {
         edges {

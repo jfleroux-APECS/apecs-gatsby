@@ -51,40 +51,61 @@ function Navbar() {
         <div className="navbar-start">
           <div className="navbar-item has-dropdown is-hoverable">
             <a href="#top" className="navbar-link is-arrowless is-spaced">
-              APECS
+              L'ASSOCIATION
             </a>
 
             <div className="navbar-dropdown">
-              <Link className="navbar-item" to="/About">
-                Nous connaître
-              </Link>
-              <Link className="navbar-item" to="/Missions">
+              <Link className="navbar-item" to="/association/Missions">
                 Nos missions
+              </Link>
+              <Link className="navbar-item" to="/association/NosEquipes">
+                Nos équipes
+              </Link>
+              <Link className="navbar-item" to="/association/Contact">
+                Contact
+              </Link>
+              <Link className="navbar-item" to="/association/Press">
+                Contact presse
+              </Link>
+            </div>
+          </div>
+
+          <div className="navbar-item has-dropdown is-hoverable">
+            <a href="#top" className="navbar-link is-arrowless is-spaced">
+              NOS ACTIONS
+            </a>
+
+            <div className="navbar-dropdown">
+              <Link className="navbar-item" to="/actions/Actions">
+                Nos actions
               </Link>
             </div>
           </div>
 
           <div className="navbar-item has-dropdown is-hoverable">
             <a href="#top" className="navbar-link is-arrowless">
-              Agir
+              AGIR À NOS CÔTÉS
             </a>
 
             <div className="navbar-dropdown">
               <Link className="navbar-item" to="/act/Benevole">
                 Devenir bénévole
               </Link>
-              <Link className="navbar-item" to="/act/Observations">
-                Vos Observations
+              <Link className="navbar-item" to="/act/Sciences">
+                Les sciences participatives
               </Link>
-              <Link className="navbar-item" to="/act/Participer">
-                Participer à nos actions
+              <Link className="navbar-item" to="/act/Pecheurs">
+                Pêcheurs responsables
+              </Link>
+              <Link className="navbar-item" to="/act/Engagez">
+                Engagez-vous
               </Link>
             </div>
           </div>
 
           <div className="navbar-item has-dropdown is-hoverable">
             <a href="#top" className="navbar-link is-arrowless">
-              Soutenir
+              NOUS SOUTENIR
             </a>
 
             <div className="navbar-dropdown">
@@ -108,12 +129,12 @@ function Navbar() {
 
           <div className="navbar-item has-dropdown is-hoverable">
             <a href="#top" className="navbar-link is-arrowless">
-              S'informer
+              S'INFORMER
             </a>
 
             <div className="navbar-dropdown">
               <Link className="navbar-item" to="/inform/actualites/Actualites">
-                Actualités
+                À la une
               </Link>
               <Link
                 className="navbar-item"
@@ -122,22 +143,7 @@ function Navbar() {
                 Les élasmobranches
               </Link>
               <Link className="navbar-item" to="/inform/resources/resources">
-                Médiathèque / Ressources
-              </Link>
-            </div>
-          </div>
-
-          <div className="navbar-item has-dropdown is-hoverable">
-            <a href="#top" className="navbar-link is-arrowless">
-              Contact
-            </a>
-
-            <div className="navbar-dropdown">
-              <Link className="navbar-item" to="/contact/contact/Contact">
-                Contact
-              </Link>
-              <Link className="navbar-item" to="/contact/press/Press">
-                Espace presse
+                Ressources
               </Link>
             </div>
           </div>
@@ -147,10 +153,16 @@ function Navbar() {
           <div className="navbar-item">
             <div className="buttons">
               <Link
+                  className="button block-transformation"
+                  to="/support/adhesion/Adhesion"
+              >
+                <strong>ADHÉRER</strong>
+              </Link>
+              <Link
                 className="button block-transformation"
                 to="/support/gift/Gift"
               >
-                <strong>Faire un don</strong>
+                <strong>FAIRE UN DON</strong>
               </Link>
               <Link
                 className="button is-light block-transformation"

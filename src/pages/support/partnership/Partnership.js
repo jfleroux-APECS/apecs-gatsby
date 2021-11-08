@@ -1,11 +1,56 @@
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+import Article from "../../../components/article/Article";
 
 export default function Partnership() {
-  return (
-    <div className="container">
-      <h1 className="title is-2 mt-4 has-text-centered">Devenir partenaire</h1>
-      <hr className="divider" />
-      <p className="subtitle">About</p>
-    </div>
-  );
+    const {
+        allWpPost: { edges: posts },
+    } = useStaticQuery(graphql`
+    query PartnershipPostQuery {
+      allWpPost(
+        filter: {
+          categories: {
+            nodes: { elemMatch: { slug: { eq: "partenaires" } } }
+          }
+        }
+      ) {
+        edges {
+          node {
+            id
+            title
+            content
+            featuredImage {
+              node {
+                altText
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1000, quality: 100) {
+                      ...GatsbyImageSharpFluid_tracedSVG
+                    }
+                  }
+                }
+              }
+            }
+            date(formatString: "DD/MM/YYYY")
+          }
+        }
+      }
+    }
+  `);
+
+    return (
+        <div className="container">
+            <h1 className="title is-2 mt-4 has-text-centered">Devenir partenaire</h1>
+            <hr className="divider" />
+            {posts.map((partenaire, index) => (
+                <div key={partenaire.node.id}>
+                    <Article
+                        title={partenaire.node.title}
+                        content={partenaire.node.content}
+                    ></Article>
+                    <div className="divider is-info" />
+                </div>
+            ))}
+        </div>
+    );
 }

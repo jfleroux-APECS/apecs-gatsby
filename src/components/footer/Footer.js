@@ -12,17 +12,17 @@ function Footer() {
           <div className="column is-uppercase block-transformation">
             <Link
               className="container has-text-centered"
-              to="/contact/contact/Contact"
+              to="/association/Contact"
             >
-              <strong className="has-text-white">Contactez-nous</strong>
+              <strong className="has-text-white">NOUS CONTACTER</strong>
             </Link>
           </div>
           <div className="column is-uppercase block-transformation">
             <Link
               className="container has-text-centered"
-              to="/contact/contact/Contact"
+              to="/association/Contact"
             >
-              <strong className="has-text-white">Mentions légales</strong>
+              <strong className="has-text-white">MENTIONS LÉGALES</strong>
             </Link>
           </div>
           <div className="column">

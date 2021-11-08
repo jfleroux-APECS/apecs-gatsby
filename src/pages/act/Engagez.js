@@ -1,16 +1,16 @@
 import React from "react";
+import Article from "../../components/article/Article";
 import { graphql, useStaticQuery } from "gatsby";
-import Article from "../../../components/article/Article";
 
-export default function Press() {
+export default function Engagez() {
   const {
     allWpPost: { edges: posts },
   } = useStaticQuery(graphql`
-    query PressPostQuery {
+    query EngagezPostQuery {
       allWpPost(
         filter: {
           categories: {
-            nodes: { elemMatch: { slug: { eq: "espace-presse" } } }
+            nodes: { elemMatch: { slug: { eq: "engagez-vous" } } }
           }
         }
       ) {
@@ -40,13 +40,15 @@ export default function Press() {
 
   return (
     <div className="container">
-      <h1 className="title is-2 mt-4 has-text-centered">Espace presse</h1>
+      <h1 className="title is-2 mt-4 has-text-centered">
+        Engagez-vous
+      </h1>
       <hr className="divider" />
-      {posts.map((presse, index) => (
-        <div key={presse.node.id}>
+      {posts.map((engage, index) => (
+        <div key={engage.node.id}>
           <Article
-            title={presse.node.title}
-            content={presse.node.content}
+            title={engage.node.title}
+            content={engage.node.content}
           ></Article>
           <div className="divider is-info" />
         </div>

@@ -3,7 +3,7 @@ import Article from "../components/article/Article";
 import { graphql, Link } from "gatsby";
 
 export const pageQuery = graphql`
-  query ActuPostById(
+  query ActionsPostById(
     # these variables are passed in via createPage.pageContext in gatsby-node.js
     $id: String!
   ) {
@@ -31,7 +31,7 @@ export const pageQuery = graphql`
   }
 `;
 
-export default function ActualitesTemplate({ data: { post } }) {
+export default function ActionsTemplate({ data: { post } }) {
   const featuredImage = {
     fluid: post.featuredImage?.node?.localFile?.childImageSharp?.fluid,
     alt: post.featuredImage?.node?.alt || ``,
@@ -45,7 +45,7 @@ export default function ActualitesTemplate({ data: { post } }) {
             <Link to="/">APECS</Link>
           </li>
           <li>
-            <a href="/inform/actualites/Actualites">Actualités</a>
+            <a href="/inform/actualites/Actualites">Actions</a>
           </li>
           <li className="is-active">
             <a href="/inform/actualites/Actualites" aria-current="page">

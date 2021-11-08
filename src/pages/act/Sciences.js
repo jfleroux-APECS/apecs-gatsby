@@ -1,15 +1,17 @@
 import React from "react";
+import Article from "../../components/article/Article";
 import { graphql, useStaticQuery } from "gatsby";
-import Article from "../components/article/Article";
 
-export default function Missions() {
+export default function Sciences() {
   const {
     allWpPost: { edges: posts },
   } = useStaticQuery(graphql`
-    query MissionsPostQuery {
+    query SciencesPostQuery {
       allWpPost(
         filter: {
-          categories: { nodes: { elemMatch: { slug: { eq: "nos-missions" } } } }
+          categories: {
+            nodes: { elemMatch: { slug: { eq: "sciences-participatives" } } }
+          }
         }
       ) {
         edges {
@@ -38,13 +40,15 @@ export default function Missions() {
 
   return (
     <div className="container">
-      <h1 className="title is-2 mt-4 has-text-centered">Nos missions</h1>
+      <h1 className="title is-2 mt-4 has-text-centered">
+        Sciences participatives
+      </h1>
       <hr className="divider" />
-      {posts.map((mission, index) => (
-        <div key={mission.node.id}>
+      {posts.map((science, index) => (
+        <div key={science.node.id}>
           <Article
-            title={mission.node.title}
-            content={mission.node.content}
+            title={science.node.title}
+            content={science.node.content}
           ></Article>
           <div className="divider is-info" />
         </div>
