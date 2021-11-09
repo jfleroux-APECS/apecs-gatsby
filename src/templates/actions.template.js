@@ -24,11 +24,6 @@ export const pageQuery = graphql`query ActionsPostById($id: String!) {
 `;
 
 export default function ActionsTemplate({ data: { post } }) {
-  const featuredImage = {
-    fluid: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: post.featuredImage?.node?.alt || ``,
-  };
-
   return (
     <div className="container mt-4">
       <nav className="breadcrumb" aria-label="breadcrumbs">

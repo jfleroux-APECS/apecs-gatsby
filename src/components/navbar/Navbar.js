@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import logo from "../../images/logo.png";
 import "./navbar.scss";
 import { Link } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
 
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
