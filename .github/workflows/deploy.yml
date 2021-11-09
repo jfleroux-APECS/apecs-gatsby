@@ -35,16 +35,30 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
+      - name: Caching Gatsby
+        id: gatsby-cache-build
+        uses: actions/cache@v2
+        with:
+          path: |
+            public
+            .cache
+            .wordpress-cache
+          key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-gatsby-build-
+
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: "14.x"
 
+      - name: npm install
+        run: npm ci
+
       - name: Build
-        run: |
-          npm ci
-          npm run build
+        run: npm run build
         env:
+          GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
           CI: true
 
         # Setup and configure gcloud CLI
