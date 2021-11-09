@@ -4,36 +4,56 @@ import "./app.scss";
 import NewsCard from "../components/news-card/News-card";
 import slugify from "../utils/Slugify";
 import { StaticImage } from "gatsby-plugin-image";
+import parse from "html-react-parser";
 
 const IndexPage = () => {
   const {
-    allWpPost: { edges: posts },
+    posts: { nodes: posts },
+    accueil,
   } = useStaticQuery(graphql`
-    query FirstPostQuery {
-      allWpPost(
+    query {
+      posts: allWpPost(
         limit: 3
         sort: { fields: [date], order: DESC }
         filter: {
           categories: { nodes: { elemMatch: { slug: { eq: "actions" } } } }
         }
       ) {
-        edges {
-          node {
-            id
-            title
-            featuredImage {
-              node {
-                altText
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 1000, quality: 100) {
-                      ...GatsbyImageSharpFluid_tracedSVG
-                    }
+        nodes {
+          id
+          title
+          featuredImage {
+            node {
+              altText
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1000, quality: 100) {
+                    ...GatsbyImageSharpFluid_tracedSVG
                   }
                 }
               }
             }
-            date(formatString: "DD/MM/YYYY")
+          }
+          date(formatString: "DD/MM/YYYY")
+        }
+      }
+      accueil: wpPost(
+        categories: { nodes: { elemMatch: { slug: { eq: "accueil" } } } }
+      ) {
+        id
+        title
+        content
+        featuredImage {
+          node {
+            sourceUrl
+            altText
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 1000, quality: 100) {
+                  ...GatsbyImageSharpFluid_tracedSVG
+                }
+              }
+            }
           }
         }
       }
@@ -42,24 +62,14 @@ const IndexPage = () => {
 
   return (
     <div id="home">
-      <section id="hero" className="hero is-medium background-hero">
+      <section id="hero" className="hero is-medium background-hero" style={{background: 'url(' + accueil.featuredImage.node.localFile.childImageSharp.fluid.src + ') center center no-repeat fixed'}}>
         <div className="hero-body">
           <div className="container has-text-left">
             <h1 className="title has-text-white">
-              Des espèces plus menacées que menaçantes
+              {parse(accueil.title)}
             </h1>
             <h2 className="subtitle has-text-white">
-              En général, lorsqu’une espèce marine est menacée, des mesures de
-              conservation peuvent être mises en place pour assurer son maintien
-              : interdiction de pêche, limitation des captures (quotas), taille
-              minimum ou maximum de débarquement, préservation des nurseries...
-              Pour en arriver là, des études scientifiques sont menées pour
-              déterminer l’abondance du stock, l’aspect des populations, leur
-              capacité d’accroissement face aux éventuelles surpêches ...
-              Ensuite, les gestionnaires débattent des décisions politiques à
-              prendre, en essayant de concilier protection des espèces et
-              sauvegarde du métier de pêcheur. Ce qui n’est pas une mince
-              affaire.
+              {parse(accueil.content)}
             </h2>
             <Link
               className="button is-info block-transformation"
@@ -82,7 +92,7 @@ const IndexPage = () => {
                   className="container has-text-centered title"
                   to="/act/Benevole"
                 >
-                  <p className="bd-notification is-primary has-text-centered">
+                  <div className="bd-notification is-primary has-text-centered">
                     <StaticImage
                       src="../images/shark_4590.png"
                       alt="Nous rejoindre"
@@ -90,7 +100,7 @@ const IndexPage = () => {
                       height={128}
                     />
                     <br />
-                  </p>
+                  </div>
                   <h3 className="title">Nous rejoindre</h3>
                 </Link>
               </div>
@@ -99,7 +109,7 @@ const IndexPage = () => {
                   className="container has-text-centered title"
                   to="/act/Observations"
                 >
-                  <p className="bd-notification is-primary has-text-centered">
+                  <div className="bd-notification is-primary has-text-centered">
                     <StaticImage
                       src="../images/psksh.png"
                       alt="Vos observations"
@@ -107,7 +117,7 @@ const IndexPage = () => {
                       height={128}
                     />
                     <br />
-                  </p>
+                  </div>
                   <h3 className="title">Vos observations</h3>
                 </Link>
               </div>
@@ -116,7 +126,7 @@ const IndexPage = () => {
                   className="container has-text-centered title"
                   to="/support/gift/Gift"
                 >
-                  <p className="bd-notification is-primary has-text-centered">
+                  <div className="bd-notification is-primary has-text-centered">
                     <StaticImage
                       src="../images/gift.png"
                       alt="Faire un don"
@@ -124,7 +134,7 @@ const IndexPage = () => {
                       height={128}
                     />
                     <br />
-                  </p>
+                  </div>
                   <h3 className="title">Faire un don</h3>
                 </Link>
               </div>
@@ -136,20 +146,18 @@ const IndexPage = () => {
           <div className="column has-text-centered">
             <div className="container">
               <h1 className="title">NOS ACTIONS</h1>
-              <hr className="small-divider" />
+              <hr className="small-divider" />.localFile?.childImageSharp?.fluid
               <div className="columns is-centered">
                 {posts.map((action) => (
                   <div
                     className="column is-narrow is-one-third"
-                    key={action.node.id}
+                    key={action.id}
                   >
-                    <Link
-                      to={`/actions/${slugify(action.node.title)}`}
-                    >
+                    <Link to={`/actions/${slugify(action.title)}`}>
                       <NewsCard
-                        title={action.node.title}
-                        featuredImage={action.node.featuredImage}
-                        date={action.node.date}
+                        title={action.title}
+                        featuredImage={action.featuredImage}
+                        date={action.date}
                       />
                     </Link>
                   </div>
