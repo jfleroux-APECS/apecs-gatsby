@@ -5,38 +5,31 @@ import { graphql, useStaticQuery } from "gatsby";
 export default function Actualites() {
     const {
         allWpPost: { edges: posts },
-    } = useStaticQuery(graphql`
-    query ActualitesPostQuery {
-      allWpPost(
-        filter: {
-          categories: {
-            nodes: { elemMatch: { slug: { eq: "actualites" } } }
-          }
-        }
-      ) {
-        edges {
+    } = useStaticQuery(graphql`query ActualitesPostQuery {
+  allWpPost(
+    filter: {categories: {nodes: {elemMatch: {slug: {eq: "actualites"}}}}}
+  ) {
+    edges {
+      node {
+        id
+        title
+        content
+        featuredImage {
           node {
-            id
-            title
-            content
-            featuredImage {
-              node {
-                altText
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 1000, quality: 100) {
-                      ...GatsbyImageSharpFluid_tracedSVG
-                    }
-                  }
-                }
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData(quality: 100, placeholder: TRACED_SVG, layout: FULL_WIDTH)
               }
             }
-            date(formatString: "DD/MM/YYYY")
           }
         }
+        date(formatString: "DD/MM/YYYY")
       }
     }
-  `);
+  }
+}
+`);
 
     return (
         <div className="container">

@@ -6,38 +6,31 @@ import { graphql, useStaticQuery } from "gatsby";
 export default function Elasmobranches() {
   const {
     allWpPost: { edges: posts },
-  } = useStaticQuery(graphql`
-    query ElasmoPostQuery {
-      allWpPost(
-        filter: {
-          categories: {
-            nodes: { elemMatch: { slug: { eq: "elasmobranches" } } }
-          }
-        }
-      ) {
-        edges {
+  } = useStaticQuery(graphql`query ElasmoPostQuery {
+  allWpPost(
+    filter: {categories: {nodes: {elemMatch: {slug: {eq: "elasmobranches"}}}}}
+  ) {
+    edges {
+      node {
+        id
+        title
+        content
+        featuredImage {
           node {
-            id
-            title
-            content
-            featuredImage {
-              node {
-                altText
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 1000, quality: 100) {
-                      ...GatsbyImageSharpFluid_tracedSVG
-                    }
-                  }
-                }
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData(quality: 100, placeholder: TRACED_SVG, layout: FULL_WIDTH)
               }
             }
-            date(formatString: "DD/MM/YYYY")
           }
         }
+        date(formatString: "DD/MM/YYYY")
       }
     }
-  `);
+  }
+}
+`);
 
   return (
     <div className="container is-fluid">

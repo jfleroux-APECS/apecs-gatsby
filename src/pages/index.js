@@ -11,7 +11,7 @@ const IndexPage = () => {
     posts: { nodes: posts },
     accueil,
   } = useStaticQuery(graphql`
-    query {
+    {
       posts: allWpPost(
         limit: 3
         sort: { fields: [date], order: DESC }
@@ -27,9 +27,11 @@ const IndexPage = () => {
               altText
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 1000, quality: 100) {
-                    ...GatsbyImageSharpFluid_tracedSVG
-                  }
+                  gatsbyImageData(
+                    quality: 100
+                    placeholder: TRACED_SVG
+                    layout: FULL_WIDTH
+                  )
                 }
               }
             }
@@ -49,9 +51,11 @@ const IndexPage = () => {
             altText
             localFile {
               childImageSharp {
-                fluid(maxWidth: 1000, quality: 100) {
-                  ...GatsbyImageSharpFluid_tracedSVG
-                }
+                gatsbyImageData(
+                  quality: 100
+                  placeholder: TRACED_SVG
+                  layout: FULL_WIDTH
+                )
               }
             }
           }
@@ -62,12 +66,20 @@ const IndexPage = () => {
 
   return (
     <div id="home">
-      <section id="hero" className="hero is-medium background-hero" style={{background: 'url(' + accueil.featuredImage.node.localFile.childImageSharp.fluid.src + ') center center no-repeat fixed'}}>
+      <section
+        id="hero"
+        className="hero is-medium background-hero"
+        style={{
+          background:
+            "url(" +
+            accueil.featuredImage.node.localFile.childImageSharp.gatsbyImageData
+              .images.fallback.src +
+            ") center center no-repeat fixed",
+        }}
+      >
         <div className="hero-body">
           <div className="container has-text-left">
-            <h1 className="title has-text-white">
-              {parse(accueil.title)}
-            </h1>
+            <h1 className="title has-text-white">{parse(accueil.title)}</h1>
             <h2 className="subtitle has-text-white">
               {parse(accueil.content)}
             </h2>
@@ -146,7 +158,7 @@ const IndexPage = () => {
           <div className="column has-text-centered">
             <div className="container">
               <h1 className="title">NOS ACTIONS</h1>
-              <hr className="small-divider" />.localFile?.childImageSharp?.fluid
+              <hr className="small-divider" />
               <div className="columns is-centered">
                 {posts.map((action) => (
                   <div

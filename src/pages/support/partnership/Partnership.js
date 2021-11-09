@@ -5,38 +5,31 @@ import Article from "../../../components/article/Article";
 export default function Partnership() {
     const {
         allWpPost: { edges: posts },
-    } = useStaticQuery(graphql`
-    query PartnershipPostQuery {
-      allWpPost(
-        filter: {
-          categories: {
-            nodes: { elemMatch: { slug: { eq: "partenaires" } } }
-          }
-        }
-      ) {
-        edges {
+    } = useStaticQuery(graphql`query PartnershipPostQuery {
+  allWpPost(
+    filter: {categories: {nodes: {elemMatch: {slug: {eq: "partenaires"}}}}}
+  ) {
+    edges {
+      node {
+        id
+        title
+        content
+        featuredImage {
           node {
-            id
-            title
-            content
-            featuredImage {
-              node {
-                altText
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 1000, quality: 100) {
-                      ...GatsbyImageSharpFluid_tracedSVG
-                    }
-                  }
-                }
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData(quality: 100, placeholder: TRACED_SVG, layout: FULL_WIDTH)
               }
             }
-            date(formatString: "DD/MM/YYYY")
           }
         }
+        date(formatString: "DD/MM/YYYY")
       }
     }
-  `);
+  }
+}
+`);
 
     return (
         <div className="container">

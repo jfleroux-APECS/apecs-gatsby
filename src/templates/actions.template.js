@@ -2,38 +2,30 @@ import React from "react";
 import Article from "../components/article/Article";
 import { graphql, Link } from "gatsby";
 
-export const pageQuery = graphql`
-  query ActionsPostById(
-    # these variables are passed in via createPage.pageContext in gatsby-node.js
-    $id: String!
-  ) {
-    # selecting the current post by id
-    post: wpPost(id: { eq: $id }) {
-      id
-      excerpt
-      content
-      title
-      date(formatString: "MMMM DD, YYYY")
-
-      featuredImage {
-        node {
-          altText
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 1000, quality: 100) {
-                ...GatsbyImageSharpFluid_tracedSVG
-              }
-            }
+export const pageQuery = graphql`query ActionsPostById($id: String!) {
+  post: wpPost(id: {eq: $id}) {
+    id
+    excerpt
+    content
+    title
+    date(formatString: "MMMM DD, YYYY")
+    featuredImage {
+      node {
+        altText
+        localFile {
+          childImageSharp {
+            gatsbyImageData(quality: 100, placeholder: TRACED_SVG, layout: FULL_WIDTH)
           }
         }
       }
     }
   }
+}
 `;
 
 export default function ActionsTemplate({ data: { post } }) {
   const featuredImage = {
-    fluid: post.featuredImage?.node?.localFile?.childImageSharp?.fluid,
+    fluid: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
     alt: post.featuredImage?.node?.alt || ``,
   };
 
