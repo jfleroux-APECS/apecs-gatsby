@@ -1,9 +1,16 @@
 @charset "utf-8";
 
 .navbar-end > .navbar-item > .buttons > a.button {
-  background-color: #f89400;
+  background-color: #1f4e78;
   color: #ffffff;
   border-width: 0;
+}
+
+.navbar-end > .navbar-item > .buttons > a.button.bordered {
+  background-color: white;
+  color: #0b2c51;
+  border-width: 2px;
+  border-color: #1f4e78;
 }
 
 .navbar-start > .navbar-item > .navbar-link {
@@ -11,12 +18,13 @@
   padding-right: 1.5rem;
 }
 
-a.navbar-burger:hover {
-  color: #ffffff;
+.navbar-burger:hover {
+  background-color: white !important;
 }
 
 @media screen and (max-width: 1024px) {
   .nav-logo {
+    margin-bottom: 40px;
     max-height: 50px !important;
   }
 }
@@ -27,7 +35,7 @@ a.navbar-burger:hover {
   }
 
   .nav-logo {
-    margin-top: auto;
+    margin-bottom: 40px;
     max-height: 150px !important;
   }
 
@@ -39,8 +47,7 @@ a.navbar-burger:hover {
   }
 }
 
-$navbar-background-color: #0b2c51;
-$navbar-item-color: #ffffff;
-$navbar-item-hover-color: #ffffff;
-$navbar-item-hover-background-color: #0b2c51;
-$navbar-dropdown-background-color: #f89400;
+$navbar-background-color: #ffffff;
+$navbar-item-color: #0b2c51;
+$navbar-item-hover-color: #0b2c51;
+$navbar-item-hover-background-color: #ffffff;

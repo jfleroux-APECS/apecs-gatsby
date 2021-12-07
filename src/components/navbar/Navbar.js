@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../images/logo.png";
+import logo from "../../images/logo_horizontal.png";
 import "./navbar.scss";
 import { Link } from "gatsby";
 
@@ -8,7 +8,7 @@ function Navbar() {
 
   return (
     <nav
-      className="navbar is-fixed-top is-default-font"
+      className="navbar is-default-font"
       role="navigation"
       aria-label="main navigation"
     >
@@ -16,14 +16,11 @@ function Navbar() {
         <Link className="navbar-item" to="/">
           <img
             src={logo}
-            height={150}
-            width={131}
+            width={200}
+            height={75}
             alt="A.P.E.C.S"
             className="block-transformation nav-logo"
-          />{" "}
-          <div className="ml-4 title has-text-light has-text-weight-medium is-hidden-desktop">
-            A.P.E.C.S
-          </div>
+          />
         </Link>
 
         <Link
@@ -152,22 +149,22 @@ function Navbar() {
           <div className="navbar-item">
             <div className="buttons">
               <Link
-                  className="button block-transformation"
-                  to="/support/adhesion/Adhesion"
+                className="button block-transformation"
+                to="/support/adhesion/Adhesion"
               >
-                <strong>ADHÉRER</strong>
+                ADHÉRER
               </Link>
               <Link
                 className="button block-transformation"
                 to="/support/gift/Gift"
               >
-                <strong>FAIRE UN DON</strong>
+                FAIRE UN DON
               </Link>
               <Link
-                className="button is-light block-transformation"
+                className="button block-transformation bordered"
                 to="/support/shop/Shop"
               >
-                <strong>Boutique</strong>
+                SIGNALER UNE OBSERVATION
               </Link>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import NewsCard from "../../components/news-card/News-card";
 import { chunk } from "lodash";
-import { graphql, Link, useStaticQuery } from "gatsby";
+import { graphql, Link, useStaticQuery, } from "gatsby";
 import slugify from "../../utils/Slugify";
 
 export default function Actions() {
