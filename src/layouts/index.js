@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
       <Navbar />
       {children}
       <Footer />
-      <a href="#" className="button is-floating is-small is-rounded">
+      <a href="#top" className="button is-floating is-small is-rounded">
         <i className="fas fa-chevron-up"></i>
       </a>
     </main>

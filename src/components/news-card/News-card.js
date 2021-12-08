@@ -3,17 +3,20 @@ import { GatsbyImage } from "gatsby-plugin-image";
 
 function NewsCard(props) {
   const featuredImage = {
-    fluid: props.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
+    fluid:
+      props.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
     alt: props.featuredImage?.node?.alt || ``,
   };
+
   return (
     <div className="card block-transformation">
       <div className="card-image">
         {featuredImage?.fluid && (
           <GatsbyImage
-            image={featuredImage.gatsbyImageData}
+            image={featuredImage.fluid}
             alt={featuredImage.alt}
-            className="image is-4by3" />
+            className="image is-3by2"
+          />
         )}
       </div>
       <div className="card-content">
