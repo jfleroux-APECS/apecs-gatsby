@@ -9,6 +9,8 @@ $title-family: "Oswald", sans-serif;
 
 @import "~bulma/bulma.sass";
 
+@import "~bulma-floating-button/dist/css/bulma-floating-button.sass";
+
 .is-default-font {
   font-family: $family-primary;
 }
