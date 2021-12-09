@@ -28,7 +28,7 @@ export default function Actions() {
                   gatsbyImageData(
                     quality: 50
                     placeholder: BLURRED
-                    width: 200
+                    width: 400
                     formats: [AUTO, WEBP, AVIF]
                   )
                 }
