@@ -9,9 +9,21 @@
 }
 
 .notification.article-background.hidden {
-  display: none
+  display: none;
 }
 
 .image.main-article-image > img {
   max-height: 300px;
+}
+
+hr.divider.light {
+  border-top: 2px solid lightgray;
+}
+
+ul {
+  list-style: inside disc !important;
+}
+
+.bordered-right {
+  border-right: lightgray solid medium;
 }

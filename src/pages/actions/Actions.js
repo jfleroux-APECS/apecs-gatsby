@@ -93,10 +93,11 @@ export default function Actions() {
       </section>
       <div className="container mt-4">
         <h1 className="title is-2 has-text-centered">Nos actions</h1>
+
         <hr className="divider" />
 
         {actions.map((chunk, index) => (
-          <div className="tile is-ancestor" key={index}>
+          <div className="tile is-ancestor mx-4" key={index}>
             {chunk.map((article) => (
               <div className="tile is-parent" key={article.id}>
                 <Link

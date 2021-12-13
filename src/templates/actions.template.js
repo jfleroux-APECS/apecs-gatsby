@@ -2,6 +2,7 @@ import React from "react";
 import Article from "../components/article/Article";
 import { graphql, Link } from "gatsby";
 import replaceWPCss from "../utils/ReplaceWPCss";
+import ArticleAction from "../components/article/ArticleAction";
 
 export const pageQuery = graphql`
   query ActionsPostById($id: String!) {
@@ -11,6 +12,14 @@ export const pageQuery = graphql`
       content
       title
       date(formatString: "MMMM DD, YYYY")
+      actions {
+        informations
+        participer
+        quand
+        qui
+        quoi
+        comment
+      }
       featuredImage {
         node {
           altText
@@ -47,10 +56,11 @@ export default function ActionsTemplate({ data: { post } }) {
           </li>
         </ul>
       </nav>
-      <Article
+      <ArticleAction
         title={post.title}
         content={replaceWPCss(post.content)}
-      ></Article>
+        actions={post.actions}
+      ></ArticleAction>
     </div>
   );
 }
