@@ -6,10 +6,19 @@ service: apecs-gatsby
 default_expiration: 300
 
 handlers:
-  - url: /(.*)\/$
-    static_files: public/\1/index.html
-    upload: public/.*index.html
-
+  # limit cache for json
+  - url: /.json
+    static_files: public/\1
+    upload: public/(.*\..+)$
+    expiration: 30
+  # Serve all static files with url ending with a file extension
+  - url: /(.*\..+)$
+    static_files: public/\1
+    upload: public/(.*\..+)$
+  # anything else is a folder - serve index.html inside
+  - url: /
+    static_files: public/index.html
+    upload: public/index.html
   - url: /(.*)$
     static_files: public/\1/index.html
     upload: public/.*/index.html
