@@ -160,12 +160,13 @@ function Navbar() {
               >
                 FAIRE UN DON
               </Link>
-              <Link
+              <a
                 className="button block-transformation bordered"
-                to="/support/shop/Shop"
+                href="https://sondages.asso-apecs.org/index.php/668917?lang=fr"
+                target="_blank"
               >
                 SIGNALER UNE OBSERVATION
-              </Link>
+              </a>
             </div>
           </div>
         </div>
