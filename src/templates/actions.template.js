@@ -19,6 +19,7 @@ export const pageQuery = graphql`
         qui
         quoi
         comment
+        partenaires
       }
       featuredImage {
         node {
