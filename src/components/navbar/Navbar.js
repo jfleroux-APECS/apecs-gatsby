@@ -1,10 +1,30 @@
 import React, { useState } from "react";
 import logo from "../../images/logo_horizontal.png";
 import "./navbar.scss";
-import { Link } from "gatsby";
+import slugify from "../../utils/Slugify";
+import { graphql, Link, useStaticQuery } from "gatsby";
 
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
+
+  const {
+    allWpPost: { edges: posts },
+  } = useStaticQuery(graphql`
+    query ActionTitlesPostQuery {
+      allWpPost(
+        filter: {
+          categories: { nodes: { elemMatch: { slug: { eq: "actions" } } } }
+        }
+      ) {
+        edges {
+          node {
+            id
+            title
+          }
+        }
+      }
+    }
+  `);
 
   return (
     <nav
@@ -46,9 +66,12 @@ function Navbar() {
       >
         <div className="navbar-start">
           <div className="navbar-item has-dropdown is-hoverable">
-            <a href="#top" className="navbar-link is-arrowless is-spaced">
+            <Link
+              className="navbar-link is-arrowless is-spaced"
+              to="/association/Association"
+            >
               L'ASSOCIATION
-            </a>
+            </Link>
 
             <div className="navbar-dropdown">
               <Link className="navbar-item" to="/association/Missions">
@@ -67,21 +90,30 @@ function Navbar() {
           </div>
 
           <div className="navbar-item has-dropdown is-hoverable">
-            <a href="#top" className="navbar-link is-arrowless is-spaced">
+            <a
+              href="/actions/Actions"
+              className="navbar-link is-arrowless is-spaced"
+            >
               NOS ACTIONS
             </a>
 
             <div className="navbar-dropdown">
-              <Link className="navbar-item" to="/actions/Actions">
-                Nos actions
-              </Link>
+              {posts.map((action, index) => (
+                <Link
+                  className="navbar-item"
+                  to={`/actions/${slugify(action.node.title)}`}
+                  key={index}
+                >
+                  {action.node.title}
+                </Link>
+              ))}
             </div>
           </div>
 
           <div className="navbar-item has-dropdown is-hoverable">
-            <a href="#top" className="navbar-link is-arrowless">
+            <Link className="navbar-link is-arrowless" to="/act/Agir">
               AGIR À NOS CÔTÉS
-            </a>
+            </Link>
 
             <div className="navbar-dropdown">
               <Link className="navbar-item" to="/act/Benevole">
@@ -100,9 +132,9 @@ function Navbar() {
           </div>
 
           <div className="navbar-item has-dropdown is-hoverable">
-            <a href="#top" className="navbar-link is-arrowless">
+            <Link to="/support/Support" className="navbar-link is-arrowless">
               NOUS SOUTENIR
-            </a>
+            </Link>
 
             <div className="navbar-dropdown">
               <Link className="navbar-item" to="/support/adhesion/Adhesion">
@@ -124,9 +156,9 @@ function Navbar() {
           </div>
 
           <div className="navbar-item has-dropdown is-hoverable">
-            <a href="#top" className="navbar-link is-arrowless">
+            <Link to="/inform/Inform" className="navbar-link is-arrowless">
               S'INFORMER
-            </a>
+            </Link>
 
             <div className="navbar-dropdown">
               <Link className="navbar-item" to="/inform/actualites/Actualites">
@@ -164,6 +196,7 @@ function Navbar() {
                 className="button block-transformation bordered"
                 href="https://sondages.asso-apecs.org/index.php/668917?lang=fr"
                 target="_blank"
+                rel="noreferrer"
               >
                 SIGNALER UNE OBSERVATION
               </a>
