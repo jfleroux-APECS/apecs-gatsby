@@ -9,7 +9,7 @@ Version: 0.1
 add_action('admin_menu', 'test_plugin_setup_menu');
 
 function test_plugin_setup_menu(){
-    add_menu_page( 'Deploy Plugin Page', 'Deploy Plugin', 'manage_options', 'deploy-plugin', 'test_init' );
+    add_menu_page( 'Deploy Plugin Page', 'Deploy Plugin', 'edit_posts', 'deploy-plugin', 'test_init' );
 }
 
 function test_init(){
