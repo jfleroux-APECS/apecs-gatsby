@@ -5,31 +5,40 @@ import { graphql, useStaticQuery } from "gatsby";
 export default function Sciences() {
   const {
     allWpPost: { edges: posts },
-  } = useStaticQuery(graphql`query SciencesPostQuery {
-  allWpPost(
-    filter: {categories: {nodes: {elemMatch: {slug: {eq: "sciences-participatives"}}}}}
-  ) {
-    edges {
-      node {
-        id
-        title
-        content
-        featuredImage {
-          node {
-            altText
-            localFile {
-              childImageSharp {
-                gatsbyImageData(quality: 100, placeholder: TRACED_SVG, layout: FULL_WIDTH)
-              }
-            }
+  } = useStaticQuery(graphql`
+    query SciencesPostQuery {
+      allWpPost(
+        filter: {
+          categories: {
+            nodes: { elemMatch: { slug: { eq: "sciences-participatives" } } }
           }
         }
-        date(formatString: "DD/MM/YYYY")
+      ) {
+        edges {
+          node {
+            id
+            title
+            content
+            featuredImage {
+              node {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(
+                      quality: 100
+                      placeholder: TRACED_SVG
+                      layout: FULL_WIDTH
+                    )
+                  }
+                }
+              }
+            }
+            date(formatString: "DD/MM/YYYY")
+          }
+        }
       }
     }
-  }
-}
-`);
+  `);
 
   return (
     <div className="container">

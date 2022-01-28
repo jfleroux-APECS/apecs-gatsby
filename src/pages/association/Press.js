@@ -5,31 +5,40 @@ import Article from "../../components/article/Article";
 export default function Press() {
   const {
     allWpPost: { edges: posts },
-  } = useStaticQuery(graphql`query PressPostQuery {
-  allWpPost(
-    filter: {categories: {nodes: {elemMatch: {slug: {eq: "espace-presse"}}}}}
-  ) {
-    edges {
-      node {
-        id
-        title
-        content
-        featuredImage {
-          node {
-            altText
-            localFile {
-              childImageSharp {
-                gatsbyImageData(quality: 100, placeholder: TRACED_SVG, layout: FULL_WIDTH)
-              }
-            }
+  } = useStaticQuery(graphql`
+    query PressPostQuery {
+      allWpPost(
+        filter: {
+          categories: {
+            nodes: { elemMatch: { slug: { eq: "espace-presse" } } }
           }
         }
-        date(formatString: "DD/MM/YYYY")
+      ) {
+        edges {
+          node {
+            id
+            title
+            content
+            featuredImage {
+              node {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(
+                      quality: 100
+                      placeholder: TRACED_SVG
+                      layout: FULL_WIDTH
+                    )
+                  }
+                }
+              }
+            }
+            date(formatString: "DD/MM/YYYY")
+          }
+        }
       }
     }
-  }
-}
-`);
+  `);
 
   return (
     <div className="container">

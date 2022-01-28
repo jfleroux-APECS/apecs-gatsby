@@ -5,29 +5,38 @@ import Article from "../../components/article/Article";
 export default function NosEquipes() {
   const {
     allWpPost: { edges: posts },
-  } = useStaticQuery(graphql`query NosEquipesPostQuery {
-  allWpPost(filter: {categories: {nodes: {elemMatch: {slug: {eq: "equipes"}}}}}) {
-    edges {
-      node {
-        id
-        title
-        content
-        featuredImage {
+  } = useStaticQuery(graphql`
+    query NosEquipesPostQuery {
+      allWpPost(
+        filter: {
+          categories: { nodes: { elemMatch: { slug: { eq: "equipes" } } } }
+        }
+      ) {
+        edges {
           node {
-            altText
-            localFile {
-              childImageSharp {
-                gatsbyImageData(quality: 100, placeholder: TRACED_SVG, layout: FULL_WIDTH)
+            id
+            title
+            content
+            featuredImage {
+              node {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(
+                      quality: 100
+                      placeholder: TRACED_SVG
+                      layout: FULL_WIDTH
+                    )
+                  }
+                }
               }
             }
+            date(formatString: "DD/MM/YYYY")
           }
         }
-        date(formatString: "DD/MM/YYYY")
       }
     }
-  }
-}
-`);
+  `);
 
   return (
     <div className="container">

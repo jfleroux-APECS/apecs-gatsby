@@ -5,31 +5,38 @@ import { graphql, useStaticQuery } from "gatsby";
 export default function Resources() {
   const {
     allWpPost: { edges: posts },
-  } = useStaticQuery(graphql`query RessourcesPostQuery {
-  allWpPost(
-    filter: {categories: {nodes: {elemMatch: {slug: {eq: "ressources"}}}}}
-  ) {
-    edges {
-      node {
-        id
-        title
-        content
-        featuredImage {
+  } = useStaticQuery(graphql`
+    query RessourcesPostQuery {
+      allWpPost(
+        filter: {
+          categories: { nodes: { elemMatch: { slug: { eq: "ressources" } } } }
+        }
+      ) {
+        edges {
           node {
-            altText
-            localFile {
-              childImageSharp {
-                gatsbyImageData(quality: 100, placeholder: TRACED_SVG, layout: FULL_WIDTH)
+            id
+            title
+            content
+            featuredImage {
+              node {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(
+                      quality: 100
+                      placeholder: TRACED_SVG
+                      layout: FULL_WIDTH
+                    )
+                  }
+                }
               }
             }
+            date(formatString: "DD/MM/YYYY")
           }
         }
-        date(formatString: "DD/MM/YYYY")
       }
     }
-  }
-}
-`);
+  `);
 
   return (
     <div className="container">
