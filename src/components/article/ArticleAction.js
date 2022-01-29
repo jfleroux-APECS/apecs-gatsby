@@ -3,10 +3,14 @@ import "./article.scss";
 import parse from "html-react-parser";
 import SocialMedia from "../social-media/SocialMedia";
 import Loupe from "../../images/svg/loupe.svg";
+import Calendar from "../../images/svg/calendar.svg";
+import Help from "../../images/svg/help.svg";
+import User from "../../images/svg/user.svg";
+import Handshake from "../../images/svg/handshake.svg";
+import Information from "../../images/svg/information.svg";
+import Target from "../../images/svg/target.svg";
 
 export default function ArticleAction(props) {
-  const actions = props.actions || {};
-
   return (
     <div id={props.id} className="container article-container">
       <article className="notification article-background mt-5">
@@ -29,13 +33,11 @@ export default function ArticleAction(props) {
   );
 }
 
-function generateSection(sectionContent) {
+function generateSection(sectionContent, icon) {
   if (sectionContent) {
     return (
       <div className="columns is-mobile has-text-justified is-vcentered">
-        <div className="column is-1">
-          <Loupe />
-        </div>
+        <div className="column is-1">{icon}</div>
         <div className="column">{parse(sectionContent)}</div>
       </div>
     );
@@ -49,25 +51,25 @@ function ActionList(props) {
 
   return (
     <div className="column">
-      {generateSection(props.actions.participer)}
+      {generateSection(props.actions.participer, <Loupe />)}
       {props.actions.participer && <hr className="divider light" />}
 
-      {generateSection(props.actions.quoi)}
+      {generateSection(props.actions.quoi, <Help />)}
       {props.actions.quoi && <hr className="divider light" />}
 
-      {generateSection(props.actions.comment)}
+      {generateSection(props.actions.comment, <Target />)}
       {props.actions.comment && <hr className="divider light" />}
 
-      {generateSection(props.actions.quand)}
+      {generateSection(props.actions.quand, <Calendar />)}
       {props.actions.quand && <hr className="divider light" />}
 
-      {generateSection(props.actions.informations)}
+      {generateSection(props.actions.informations, <Information />)}
       {props.actions.informations && <hr className="divider light" />}
 
-      {generateSection(props.actions.qui)}
+      {generateSection(props.actions.qui, <User />)}
       {props.actions.qui && <hr className="divider light" />}
 
-      {generateSection(props.actions.partenaires)}
+      {generateSection(props.actions.partenaires, <Handshake />)}
     </div>
   );
 }
