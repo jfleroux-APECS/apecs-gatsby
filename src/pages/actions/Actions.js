@@ -97,13 +97,13 @@ export default function Actions() {
         <hr className="divider" />
 
         {actions.map((chunk, index) => (
-          <div className="tile is-ancestor mx-4" key={index}>
+          <div
+            className="columns  is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd"
+            key={index}
+          >
             {chunk.map((article) => (
-              <div className="tile is-parent" key={article.id}>
-                <Link
-                  className="tile is-child"
-                  to={`/actions/${slugify(article.title)}`}
-                >
+              <div className="column" key={article.id}>
+                <Link to={`/actions/${slugify(article.title)}`}>
                   <NewsCard
                     title={article.title}
                     featuredImage={article.featuredImage}

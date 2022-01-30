@@ -9,7 +9,7 @@ function NewsCard(props) {
   };
 
   return (
-    <div className="card block-transformation">
+    <div className="card block-transformation m-4 ">
       <div className="card-image">
         {featuredImage?.fluid && (
           <GatsbyImage
