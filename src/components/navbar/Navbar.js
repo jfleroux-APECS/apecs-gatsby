@@ -43,26 +43,32 @@ function Navbar() {
           />
         </Link>
 
-        <Link
+        <span
           onClick={() => {
             setIsActive(!isActive);
           }}
+          tabIndex="0"
           role="button"
           className={`navbar-burger burger ${isActive ? "is-active" : ""}`}
           aria-label="menu"
           aria-expanded="false"
           data-target="mainNavbar"
-          to="#top"
         >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
-        </Link>
+        </span>
       </div>
 
       <div
         id="mainNavbar"
         className={`navbar-menu ${isActive ? "is-active" : ""}`}
+        onClick={() => {
+          setIsActive(!isActive);
+          const el = document.activeElement;
+          el?.classList?.contains("navbar-item") && el.blur();
+        }}
+        role="button"
       >
         <div className="navbar-start">
           <div className="navbar-item has-dropdown is-hoverable">
@@ -90,12 +96,12 @@ function Navbar() {
           </div>
 
           <div className="navbar-item has-dropdown is-hoverable">
-            <a
-              href="/actions/Actions"
+            <Link
+              to="/actions/Actions"
               className="navbar-link is-arrowless is-spaced"
             >
               NOS ACTIONS
-            </a>
+            </Link>
 
             <div className="navbar-dropdown">
               {posts.map((action, index) => (
