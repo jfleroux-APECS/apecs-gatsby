@@ -66,7 +66,7 @@ function Navbar() {
         onClick={() => {
           setIsActive(!isActive);
           const el = document.activeElement;
-          el?.classList?.contains("navbar-item") && el.blur();
+          el?.blur();
         }}
         role="button"
       >
