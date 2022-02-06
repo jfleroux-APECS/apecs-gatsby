@@ -13,6 +13,7 @@ export const pageQuery = graphql`
       title
       date(formatString: "MMMM DD, YYYY")
       actions {
+        sousTitre
         informations
         participer
         quand
@@ -41,27 +42,11 @@ export const pageQuery = graphql`
 
 export default function ActionsTemplate({ data: { post } }) {
   return (
-    <div className="container mt-4">
-      <nav className="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-          <li>
-            <Link to="/">APECS</Link>
-          </li>
-          <li>
-            <a href="/inform/actualites/Actualites">Actions</a>
-          </li>
-          <li className="is-active">
-            <a href="/inform/actualites/Actualites" aria-current="page">
-              {post.title}
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <ArticleAction
-        title={post.title}
-        content={replaceWPCss(post.content)}
-        actions={post.actions}
-      ></ArticleAction>
-    </div>
+    <ArticleAction
+      title={post.title}
+      featuredImage={post.featuredImage}
+      content={replaceWPCss(post.content)}
+      actions={post.actions}
+    ></ArticleAction>
   );
 }

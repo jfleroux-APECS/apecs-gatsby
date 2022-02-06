@@ -1,4 +1,5 @@
 import React from "react";
+import "./news-card.scss";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 function NewsCard(props) {

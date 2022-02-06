@@ -1,7 +1,6 @@
 import React from "react";
 import "./article.scss";
 import parse from "html-react-parser";
-import SocialMedia from "../social-media/SocialMedia";
 import Loupe from "../../images/svg/loupe.svg";
 import Calendar from "../../images/svg/calendar.svg";
 import Help from "../../images/svg/help.svg";
@@ -12,23 +11,39 @@ import Target from "../../images/svg/target.svg";
 
 export default function ArticleAction(props) {
   return (
-    <div id={props.id} className="container article-container">
-      <article className="notification article-background mt-5">
-        <div className="columns is-mobile">
-          <div className="column">
-            <h2 className="title">{parse(props.title)}</h2>
+    <div>
+      {props.featuredImage && (
+        <section
+          id="hero"
+          className="hero is-medium background-hero"
+          style={{
+            background:
+              "url(" +
+              props.featuredImage.node.localFile.childImageSharp.gatsbyImageData
+                .images.fallback.src +
+              ") center center no-repeat fixed",
+          }}
+        >
+          <div className="hero-body"></div>
+        </section>
+      )}
+      <div className="container article-container">
+        <article className="notification article-background mt-5">
+          <div className="columns is-mobile has-text-centered mb-6">
+            <div className="column">
+              <h2 className="title is-2">{parse(props.title)}</h2>
+              <hr className="small-divider" />
+              <h5 className="subtitle is-5">{props.actions.sousTitre}</h5>
+            </div>
           </div>
-          <div className="column has-text-right">
-            <SocialMedia title={props.title}></SocialMedia>
+          <div className="columns is-mobile">
+            <div className="column bordered-right is-7">
+              {parse(props.content)}
+            </div>
+            <ActionList actions={props.actions} />
           </div>
-        </div>
-        <div className="columns is-mobile">
-          <div className="column bordered-right is-7">
-            {parse(props.content)}
-          </div>
-          <ActionList actions={props.actions} />
-        </div>
-      </article>
+        </article>
+      </div>
     </div>
   );
 }

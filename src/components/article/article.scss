@@ -4,6 +4,15 @@
   min-width: 200px;
 }
 
+.background-hero {
+  background-size: cover !important;
+  background-attachment: local;
+}
+
+.hero-body {
+  min-height: 400px;
+}
+
 .notification.article-background {
   background-color: #ffffff;
 }
