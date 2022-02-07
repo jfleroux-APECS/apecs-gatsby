@@ -32,7 +32,7 @@ function Navbar() {
       role="navigation"
       aria-label="main navigation"
     >
-      <div className="navbar-brand">
+      <div className="navbar-brand left-burger">
         <Link className="navbar-item" to="/">
           <img
             src={logo}

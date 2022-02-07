@@ -8,7 +8,7 @@ import { Link } from "gatsby";
 const Layout = ({ children }) => {
   return (
     <main>
-      <div id="top-bandeau" className="level mb-0 background-colored">
+      <div id="top-bandeau" className="level is-mobile mb-0 background-colored is-size-7-mobile">
         <div className="level-left"></div>
 
         <div className="level-right">
