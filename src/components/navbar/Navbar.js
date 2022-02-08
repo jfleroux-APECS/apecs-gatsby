@@ -59,7 +59,7 @@ function Navbar() {
           <span aria-hidden="true"></span>
         </span>
 
-        <span className="is-flex-touch">&nbsp;</span>
+        <span className="is-flex-touch is-hidden-desktop">&nbsp;</span>
       </div>
 
       <div
