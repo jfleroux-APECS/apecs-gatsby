@@ -32,8 +32,8 @@ function Navbar() {
       role="navigation"
       aria-label="main navigation"
     >
-      <div className="navbar-brand left-burger">
-        <Link className="navbar-item" to="/">
+      <div className="navbar-brand mobile-reordered">
+        <Link className="navbar-item navbar-item-logo" to="/">
           <img
             src={logo}
             width={200}
@@ -58,6 +58,8 @@ function Navbar() {
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </span>
+
+        <span className="is-flex-touch">&nbsp;</span>
       </div>
 
       <div
