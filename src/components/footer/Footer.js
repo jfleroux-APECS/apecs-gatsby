@@ -20,7 +20,7 @@ function Footer() {
           <div className="column is-uppercase block-transformation">
             <Link
               className="container has-text-centered"
-              to="/association/Contact"
+              to="/association/Mentions"
             >
               <strong className="has-text-white">MENTIONS LÉGALES</strong>
             </Link>
