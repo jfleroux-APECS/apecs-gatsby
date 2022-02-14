@@ -1,6 +1,5 @@
 import React from "react";
-import Article from "../components/article/Article";
-import { graphql, Link } from "gatsby";
+import {graphql} from "gatsby";
 import replaceWPCss from "../utils/ReplaceWPCss";
 import ArticleAction from "../components/article/ArticleAction";
 

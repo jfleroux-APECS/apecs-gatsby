@@ -51,7 +51,7 @@ export default function ArticleAction(props) {
 function generateSection(sectionContent, icon) {
   if (sectionContent) {
     return (
-      <div className="columns has-text-justified is-vcentered">
+      <div className="columns has-text-justified is-vcentered without-margin-bottom">
         <div className="column is-1 has-text-centered">{icon}</div>
         <div className="column">{parse(sectionContent)}</div>
       </div>

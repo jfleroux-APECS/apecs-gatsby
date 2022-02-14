@@ -27,6 +27,7 @@
 
 hr.divider.light {
   border-top: 2px solid lightgray;
+  margin: 0.5rem 0;
 }
 
 ul {
@@ -35,4 +36,8 @@ ul {
 
 .bordered-right {
   border-right: lightgray solid medium;
+}
+
+.columns.without-margin-bottom {
+  margin-bottom: 0!important;
 }
