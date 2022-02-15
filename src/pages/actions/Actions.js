@@ -71,7 +71,7 @@ export default function Actions() {
     <div>
       <section
         id="hero"
-        className="hero is-medium background-hero"
+        className="hero is-large background-hero"
         style={{
           background:
             "url(" +

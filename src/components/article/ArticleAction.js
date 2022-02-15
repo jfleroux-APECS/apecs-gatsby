@@ -15,7 +15,7 @@ export default function ArticleAction(props) {
       {props.featuredImage && (
         <section
           id="hero"
-          className="hero is-medium background-hero"
+          className="hero is-large background-hero"
           style={{
             background:
               "url(" +
@@ -36,8 +36,8 @@ export default function ArticleAction(props) {
               <h5 className="subtitle is-5">{props.actions.sousTitre}</h5>
             </div>
           </div>
-          <div className="columns is-mobile">
-            <div className="column bordered-right is-7">
+          <div className="columns is-desktop">
+            <div className="column bordered-right is-8">
               {parse(props.content)}
             </div>
             <ActionList actions={props.actions} />
@@ -52,7 +52,7 @@ function generateSection(sectionContent, icon) {
   if (sectionContent) {
     return (
       <div className="columns has-text-justified is-vcentered without-margin-bottom">
-        <div className="column is-1 has-text-centered">{icon}</div>
+        <div className="column is-1 has-text-centered min-width">{icon}</div>
         <div className="column">{parse(sectionContent)}</div>
       </div>
     );
@@ -65,7 +65,8 @@ function ActionList(props) {
   }
 
   return (
-    <div className="column">
+    <div className="column font-size-14">
+      <hr className="divider light is-hidden-desktop" />
       {generateSection(props.actions.participer, <Loupe />)}
       {props.actions.participer && <hr className="divider light" />}
 

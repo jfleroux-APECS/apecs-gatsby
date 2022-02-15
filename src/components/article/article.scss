@@ -34,10 +34,20 @@ ul {
   list-style: inside disc !important;
 }
 
-.bordered-right {
-  border-right: lightgray solid medium;
+.font-size-14 {
+  font-size: 14px;
+}
+
+.min-width {
+  min-width: 50px;
+}
+
+@media screen and (min-width: 1024px) {
+  .bordered-right {
+    border-right: lightgray solid medium;
+  }
 }
 
 .columns.without-margin-bottom {
-  margin-bottom: 0!important;
+  margin-bottom: 0 !important;
 }

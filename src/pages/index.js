@@ -69,7 +69,7 @@ const IndexPage = () => {
     <div id="home">
       <section
         id="hero"
-        className="hero is-medium background-hero"
+        className="hero is-large background-hero"
         style={{
           background:
             "url(" +
