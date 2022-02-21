@@ -60,7 +60,7 @@ function generateSection(sectionContent, icon) {
 }
 
 function ActionList(props) {
-  if (!props.actions.participer) {
+  if (Object.keys(props.actions).length === 0) {
     return null;
   }
 
