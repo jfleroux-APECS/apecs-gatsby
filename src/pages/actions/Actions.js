@@ -26,7 +26,7 @@ export default function Actions() {
               localFile {
                 childImageSharp {
                   gatsbyImageData(
-                    quality: 50
+                    quality: 100
                     placeholder: BLURRED
                     width: 400
                     formats: [AUTO, WEBP, AVIF]

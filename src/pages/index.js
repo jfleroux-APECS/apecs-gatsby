@@ -28,9 +28,9 @@ const IndexPage = () => {
               localFile {
                 childImageSharp {
                   gatsbyImageData(
-                    quality: 50
+                    quality: 100
                     placeholder: BLURRED
-                    width: 400
+                    width: 600
                     formats: [AUTO, WEBP, AVIF]
                   )
                 }
