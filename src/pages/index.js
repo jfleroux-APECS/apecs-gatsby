@@ -22,6 +22,9 @@ const IndexPage = () => {
         nodes {
           id
           title
+          actions {
+            sousTitre
+          }
           featuredImage {
             node {
               altText
@@ -170,7 +173,7 @@ const IndexPage = () => {
                       <NewsCard
                         title={action.title}
                         featuredImage={action.featuredImage}
-                        date={action.date}
+                        sousTitre={action.actions.sousTitre}
                       />
                     </Link>
                   </div>

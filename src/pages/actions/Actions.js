@@ -20,6 +20,9 @@ export default function Actions() {
           id
           title
           content
+          actions {
+            sousTitre
+          }
           featuredImage {
             node {
               altText
@@ -107,7 +110,7 @@ export default function Actions() {
                   <NewsCard
                     title={article.title}
                     featuredImage={article.featuredImage}
-                    date={article.date}
+                    sousTitre={article.actions.sousTitre}
                     content={article.content.substring(0, 500).concat("...")}
                   />
                 </Link>

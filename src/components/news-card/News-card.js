@@ -22,9 +22,7 @@ function NewsCard(props) {
       </div>
       <div className="card-content">
         <p className="title is-size-5 is-centered">{props.title}</p>
-        <p className="subtitle is-size-6">
-          <time dateTime={props.date}>{props.date}</time>
-        </p>
+        <p className="subtitle is-size-6">{props.sousTitre}</p>
       </div>
     </div>
   );
