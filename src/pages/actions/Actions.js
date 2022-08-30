@@ -101,11 +101,11 @@ export default function Actions() {
 
         {actions.map((chunk, index) => (
           <div
-            className="columns  is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd"
+            className="columns is-variable is-1-mobile is-0-tablet is-2-desktop is-2-widescreen is-2-fullhd"
             key={index}
           >
             {chunk.map((article) => (
-              <div className="column" key={article.id}>
+              <div className="column is-one-quarter" key={article.id}>
                 <Link to={`/actions/${slugify(article.title)}`}>
                   <NewsCard
                     title={article.title}
