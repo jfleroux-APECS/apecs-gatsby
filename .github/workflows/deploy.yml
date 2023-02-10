@@ -61,13 +61,16 @@ jobs:
           GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
           CI: true
 
-        # Setup and configure gcloud CLI
-      - uses: google-github-actions/setup-gcloud@v0
+      # Setup and configure gcloud CLI
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v1'
         with:
-          version: "334.0.0"
+          credentials_json: ${{ secrets.gcloud_key}}
+
+      - uses: google-github-actions/setup-gcloud@v1
+        with:
           project_id: ${{ secrets.PROJECT_ID }}
-          service_account_email: ${{ secrets.gcloud_email }}
-          service_account_key: ${{ secrets.gcloud_key}}
 
       # Deploy App to App Engine
       - name: Publish app to Google App Engine
