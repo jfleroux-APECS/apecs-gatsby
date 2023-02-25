@@ -2,6 +2,7 @@ import React from "react";
 import "./article.scss";
 import parse from "html-react-parser";
 import SocialMedia from "../social-media/SocialMedia";
+import replaceWPCss from "../../utils/ReplaceWPCss";
 
 export default function Article(props) {
   return (
@@ -15,7 +16,7 @@ export default function Article(props) {
             <SocialMedia title={props.title}></SocialMedia>
           </div>
         </div>
-        {parse(props.content)}
+        {parse(replaceWPCss(props.content))}
       </article>
     </div>
   );
