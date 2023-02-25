@@ -1,4 +1,7 @@
 module.exports = {
+  flags: {
+    DEV_SSR: true
+  },
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-layout",

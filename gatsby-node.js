@@ -66,7 +66,7 @@ async function getActionsPosts({ graphql, reporter }) {
     query WpPosts {
       # Query all WordPress blog posts sorted by date
       allWpPost(
-        sort: { fields: [date], order: DESC }
+        sort: { date: DESC }
         filter: {
           categories: { nodes: { elemMatch: { slug: { eq: "actions" } } } }
         }
@@ -75,14 +75,12 @@ async function getActionsPosts({ graphql, reporter }) {
           previous {
             id
           }
-
           # note: this is a GraphQL alias. It renames "node" to "post" for this query
           # We're doing this because this "node" is a post! It makes our code more readable further down the line.
           post: node {
             id
             title
           }
-
           next {
             id
           }
@@ -103,29 +101,29 @@ async function getActionsPosts({ graphql, reporter }) {
 }
 
 function slugify(toBeSlugified) {
-    if(!toBeSlugified) {
-        return;
-    }
-    const charactersToReplace =
-        "àáäâãåăæçèéëêǵḧìíïîḿńǹñòóöôœøṕŕßśșțùúüûǘẃẍÿź·/_,:;";
-    const templateForReplacingCharacters =
-        "aaaaaaaaceeeeghiiiimnnnooooooprssstuuuuuwxyz------";
-    const specialCharsRegex = new RegExp(
-        charactersToReplace.split("").join("|"),
-        "g"
-    );
-    return toBeSlugified
-        .toString()
-        .toLowerCase()
-        .replace(/\s+/g, "-") // Replace spaces with -
-        .replace(specialCharsRegex, (character) =>
-            templateForReplacingCharacters.charAt(
-                charactersToReplace.indexOf(character)
-            )
-        ) // Replace special characters
-        .replace(/&/g, "-and-") // Replace & with ‘and’
-        .replace(/[^\w-]+/g, "") // Remove all non-word characters
-        .replace(/--+/g, "-") // Replace multiple - with single -
-        .replace(/^-+/, "") // Trim - from start of text
-        .replace(/-+$/, ""); // Trim - from end of text
+  if (!toBeSlugified) {
+    return;
+  }
+  const charactersToReplace =
+    "àáäâãåăæçèéëêǵḧìíïîḿńǹñòóöôœøṕŕßśșțùúüûǘẃẍÿź·/_,:;";
+  const templateForReplacingCharacters =
+    "aaaaaaaaceeeeghiiiimnnnooooooprssstuuuuuwxyz------";
+  const specialCharsRegex = new RegExp(
+    charactersToReplace.split("").join("|"),
+    "g"
+  );
+  return toBeSlugified
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, "-") // Replace spaces with -
+    .replace(specialCharsRegex, (character) =>
+      templateForReplacingCharacters.charAt(
+        charactersToReplace.indexOf(character)
+      )
+    ) // Replace special characters
+    .replace(/&/g, "-and-") // Replace & with ‘and’
+    .replace(/[^\w-]+/g, "") // Remove all non-word characters
+    .replace(/--+/g, "-") // Replace multiple - with single -
+    .replace(/^-+/, "") // Trim - from start of text
+    .replace(/-+$/, ""); // Trim - from end of text
 }

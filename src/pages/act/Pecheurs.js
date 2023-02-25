@@ -24,7 +24,7 @@ export default function Pecheurs() {
                   childImageSharp {
                     gatsbyImageData(
                       quality: 100
-                      placeholder: TRACED_SVG
+                      placeholder: DOMINANT_COLOR
                       layout: FULL_WIDTH
                     )
                   }

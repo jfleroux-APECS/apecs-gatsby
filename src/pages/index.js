@@ -14,7 +14,7 @@ const IndexPage = () => {
     {
       posts: allWpPost(
         limit: 3
-        sort: { fields: [date], order: DESC }
+        sort: { date: DESC }
         filter: {
           categories: { nodes: { elemMatch: { slug: { eq: "actions" } } } }
         }
@@ -57,7 +57,7 @@ const IndexPage = () => {
               childImageSharp {
                 gatsbyImageData(
                   quality: 100
-                  placeholder: TRACED_SVG
+                  placeholder: DOMINANT_COLOR
                   layout: FULL_WIDTH
                 )
               }

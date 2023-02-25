@@ -57,7 +57,7 @@ export default function Actions() {
               childImageSharp {
                 gatsbyImageData(
                   quality: 100
-                  placeholder: TRACED_SVG
+                  placeholder: DOMINANT_COLOR
                   layout: FULL_WIDTH
                 )
               }
@@ -72,28 +72,30 @@ export default function Actions() {
 
   return (
     <div>
-      <section
-        id="hero"
-        className="hero is-large background-hero"
-        style={{
-          background:
-            "url(" +
-            presentation.featuredImage.node.localFile.childImageSharp
-              .gatsbyImageData.images.fallback.src +
-            ") center center no-repeat fixed",
-        }}
-      >
-        <div className="hero-body">
-          <div className="container has-text-left">
-            <h1 className="title has-text-white">
-              {parse(presentation.title)}
-            </h1>
-            <h2 className="subtitle has-text-white is-italic">
-              {parse(presentation.content)}
-            </h2>
+      {presentation && (
+        <section
+          id="hero"
+          className="hero is-large background-hero"
+          style={{
+            background:
+              "url(" +
+              presentation.featuredImage?.node.localFile.childImageSharp
+                .gatsbyImageData.images.fallback.src +
+              ") center center no-repeat fixed",
+          }}
+        >
+          <div className="hero-body">
+            <div className="container has-text-left">
+              <h1 className="title has-text-white">
+                {parse(presentation.title)}
+              </h1>
+              <h2 className="subtitle has-text-white is-italic">
+                {parse(presentation.content)}
+              </h2>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
       <div className="container mt-4">
         <h1 className="title is-2 has-text-centered">Nos actions</h1>
 
