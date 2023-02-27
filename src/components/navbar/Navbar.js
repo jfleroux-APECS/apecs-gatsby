@@ -7,25 +7,6 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
 
-  const {
-    allWpPost: { edges: posts },
-  } = useStaticQuery(graphql`
-    query ActionTitlesPostQuery {
-      allWpPost(
-        filter: {
-          categories: { nodes: { elemMatch: { slug: { eq: "actions" } } } }
-        }
-      ) {
-        edges {
-          node {
-            id
-            title
-          }
-        }
-      }
-    }
-  `);
-
   return (
     <nav
       className="navbar is-default-font"
@@ -104,18 +85,6 @@ function Navbar() {
             >
               NOS ACTIONS
             </Link>
-
-            <div className="navbar-dropdown">
-              {posts.map((action, index) => (
-                <Link
-                  className="navbar-item"
-                  to={`/actions/${slugify(action.node.title)}`}
-                  key={index}
-                >
-                  {action.node.title}
-                </Link>
-              ))}
-            </div>
           </div>
 
           <div className="navbar-item has-dropdown is-hoverable">
