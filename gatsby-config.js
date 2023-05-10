@@ -1,10 +1,11 @@
 module.exports = {
   flags: {
-    DEV_SSR: true
+    DEV_SSR: true,
   },
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-layout",
+    "gatsby-plugin-htaccess",
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
