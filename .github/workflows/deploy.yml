@@ -69,7 +69,7 @@ jobs:
           username: ${{ secrets.O2SWITCH_FTP_USERNAME }}
           password: ${{ secrets.O2SWITCH_FTP_PASSWORD }}
           local-dir: ./public/
-          server-dir: ./asso-apecs.org/
+          server-dir: ./
 
       # Setup and configure gcloud CLI
       - id: "auth"
