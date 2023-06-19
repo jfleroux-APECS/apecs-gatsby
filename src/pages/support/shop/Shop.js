@@ -16,7 +16,7 @@ function Shop() {
       <iframe
         id="haWidget"
         scrolling="auto"
-        src="https://www.helloasso.com/associations/apecs-association-pour-l-etude-et-la-conservation-des-selaciens/evenements/boutique/widget"
+        src="https://www.helloasso.com/associations/apecs-association-pour-l-etude-et-la-conservation-des-selaciens/boutiques/la-boutique-en-ligne-apecs-vrai-version/widget"
         className="shop-iframe"
         onLoad={onload.bind(this)}
         title="Boutique"
