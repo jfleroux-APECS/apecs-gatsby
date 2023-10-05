@@ -1,5 +1,5 @@
 import React from "react";
-import {graphql} from "gatsby";
+import { graphql } from "gatsby";
 import replaceWPCss from "../utils/ReplaceWPCss";
 import ArticleAction from "../components/article/ArticleAction";
 
