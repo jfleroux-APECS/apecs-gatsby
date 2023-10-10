@@ -1,7 +1,9 @@
 import React from "react";
 import FacebookIcon from "../../images/svg/facebook.svg";
-import TwitterIcon from "../../images/svg/twitter.svg";
+import TwitterIcon from "../../images/svg/X_logo_2023.svg";
 import YoutubeIcon from "../../images/svg/youtube.svg";
+import LinkedinIcon from "../../images/svg/linkedin.svg";
+import InstagramIcon from "../../images/svg/instagram.svg";
 import { Link } from "gatsby";
 
 function Footer() {
@@ -48,12 +50,32 @@ function Footer() {
             </span>
             <span className="icon is-medium">
               <a
-                href="https://www.youtube.com/channel/UCCLIfNbu65a8AP5sxOys9-Q"
+                href="https://www.youtube.com/@associationapecs5623"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="icon-white block-transformation"
               >
                 <YoutubeIcon />
+              </a>
+            </span>
+            <span className="icon is-medium">
+              <a
+                href="https://www.linkedin.com/company/asso-apecs/?originalSubdomain=fr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="icon-white block-transformation"
+              >
+                <LinkedinIcon />
+              </a>
+            </span>
+            <span className="icon is-medium">
+              <a
+                href="https://www.instagram.com/assoapecs/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="icon-white block-transformation"
+              >
+                <InstagramIcon />
               </a>
             </span>
           </div>
