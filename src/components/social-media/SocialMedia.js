@@ -31,5 +31,7 @@ export default function SocialMedia(props) {
       </div>
     );
   }
-  return ();
+  return (
+        null
+  );
 };
