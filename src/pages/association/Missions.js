@@ -41,7 +41,7 @@ export default function Missions() {
 
   return (
     <div className="container">
-      <h1 className="titleTest">Nos missions</h1>
+      <h1 className="APECStitle1">Nos missions</h1>
       <hr className="divider" />
       {posts.map((mission, index) => (
         <div key={mission.node.id}>
