@@ -12,9 +12,9 @@ html  {
   font-family: $title-family;
   font-weight: bold;
   font-size: 3rem;
-  position: absolute;
+  position: fixed;
   left: 0;
-  bottom: 90px;
+  top: 90px;
   writing-mode: vertical-lr;
   transform: rotate(180deg);
   white-space: nowrap;
