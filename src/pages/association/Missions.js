@@ -45,10 +45,10 @@ export default function Missions() {
       <hr className="divider" />
       {posts.map((mission, index) => (
         <div key={mission.node.id}>
-          <Article
+          <ArticleAssociation
             title={mission.node.title}
             content={mission.node.content}
-          ></Article>
+          ></ArticleAssociation>
           <div className="divider is-info" />
         </div>
       ))}
