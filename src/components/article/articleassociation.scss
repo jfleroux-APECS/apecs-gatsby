@@ -5,6 +5,18 @@ html  {
   font-family: "Aileron", sans-serif; 
 }
 
+.thiblayout {
+  position: absolute;
+  left: 0;
+  bottom: 90px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  visibility: visible;
+  opacity: 1;
+  transform: matrix3d(-1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+}
+
 .APECStitle1 {
   color: #0b5aa6;
   font-family: $title-family;
@@ -23,13 +35,7 @@ html  {
   color: #0b5aa6;
   font-family: $title-family;
   font-weight: bold;
-  position: absolute;
   font-size: 3rem;
-  left: 0;
-  bottom: 90px;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  white-space: nowrap;
 }
 
 .APECStitle4 {
