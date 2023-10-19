@@ -9,7 +9,11 @@ export default function ArticleAssociation(props) {
     <div id={props.id} className="container article-container">
       <article className="notification article-background mt-5">
         <div className="columns">
-          <div className="column">
+          /*<div className="column">
+            <h2 className="title">{parse(props.title)}</h2>
+          </div>
+          */
+          <div className="thiblayout">
             <h2 className="title">{parse(props.title)}</h2>
           </div>
           <div className="column has-text-right">
