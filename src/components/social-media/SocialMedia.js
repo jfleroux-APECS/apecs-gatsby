@@ -12,20 +12,21 @@ import {
 
 export default function SocialMedia(props) {
   const location = "https://www.asso-apecs.org/";
-    return (
-        <div className="container">
-          <FacebookShareButton url={location} quote={props.title}>
-            <FacebookIcon size={32} round />
-          </FacebookShareButton>
-          <TwitterShareButton url={location} title={props.title}>
-            <TwitterIcon size={32} round />
-          </TwitterShareButton>
-          <LinkedinShareButton url={location} title={props.title}>
-            <LinkedinIcon size={32} round />
-          </LinkedinShareButton>
-          <WhatsappShareButton url={location} title={props.title}>
-            <WhatsappIcon size={32} round />
-          </WhatsappShareButton>
-        </div>
-    );
-};
+
+  return (
+    <div className="container">
+      <FacebookShareButton url={location} quote={props.title}>
+        <FacebookIcon size={32} round />
+      </FacebookShareButton>
+      <TwitterShareButton url={location} title={props.title}>
+        <TwitterIcon size={32} round />
+      </TwitterShareButton>
+      <LinkedinShareButton url={location} title={props.title}>
+        <LinkedinIcon size={32} round />
+      </LinkedinShareButton>
+      <WhatsappShareButton url={location} title={props.title}>
+        <WhatsappIcon size={32} round />
+      </WhatsappShareButton>
+    </div>
+  );
+}
