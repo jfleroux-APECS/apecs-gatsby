@@ -1,5 +1,5 @@
 import React from "react";
-import "./article.scss";
+import "./articleassociation.scss";
 import parse from "html-react-parser";
 import SocialMedia from "../social-media/SocialMedia";
 import replaceWPCss from "../../utils/ReplaceWPCss";
