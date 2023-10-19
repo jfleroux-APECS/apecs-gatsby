@@ -13,8 +13,8 @@ export default function ArticleAssociation(props) {
             <h2 className="title">{parse(props.title)}</h2>
           </div>
           */
-          <div>
-            <h2 className="thiblayout">{parse(props.title)}</h2>
+          <div className="thiblayout">
+            <h2 className="title">{parse(props.title)}</h2>
           </div>
           <div className="column has-text-right">
             <SocialMedia title={props.title}></SocialMedia>
