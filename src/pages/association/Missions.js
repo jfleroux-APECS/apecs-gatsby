@@ -1,7 +1,7 @@
 import React from "react";
 import "../app.scss";
 import { graphql, useStaticQuery } from "gatsby";
-import Article from "../../components/article/Article";
+import ArticleAssociation from "../../components/article/ArticleAssociation";
 
 export default function Missions() {
   const {
