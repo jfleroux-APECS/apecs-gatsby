@@ -1,4 +1,4 @@
-import "./src/global.scss";
+import "../global.scss";
 
 export default function replaceWPCss(WPContent) {
   return WPContent.replaceAll("wp-block-columns", "columns")
