@@ -12,7 +12,7 @@ html  {
   font-family: $title-family;
   font-weight: bold;
   font-size: 3rem;
-  position: fixed;
+  position: sticky;
   left: 0;
   top: 90px;
   writing-mode: vertical-lr;
