@@ -9,7 +9,7 @@ import {
   WhatsappIcon,
   WhatsappShareButton,
 } from "react-share";
-import {BrowserView, MobileView} from 'react-device-detect';
+import {MobileView} from 'react-device-detect';
 
 export default function SocialMedia(props) {
   const location = "https://www.asso-apecs.org/";
