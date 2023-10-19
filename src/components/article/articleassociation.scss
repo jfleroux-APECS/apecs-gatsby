@@ -1,5 +1,44 @@
 @charset "utf-8";
 
+html  {
+  font-size: 1rem;
+  font-family: "Aileron", sans-serif; 
+}
+
+.APECStitle1 {
+  color: #0b5aa6;
+  font-family: $title-family;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.APECStitle2 {
+  color: #3185c5;
+  font-family: $title-family;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.APECStitle3 {
+  color: #0b5aa6;
+  font-family: $title-family;
+  font-weight: bold;
+  position: absolute;
+  font-size: 3rem;
+  left: 0;
+  bottom: 90px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+}
+
+.APECStitle4 {
+  color: #575756;
+  font-family: $title-family;
+  font-weight: lighter;
+  font-size: 1.5rem;
+}
+
 .article-container {
   min-width: 200px;
 }
