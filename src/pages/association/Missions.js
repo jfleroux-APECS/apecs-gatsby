@@ -1,4 +1,5 @@
 import React from "react";
+import "./app.scss";
 import { graphql, useStaticQuery } from "gatsby";
 import Article from "../../components/article/Article";
 
@@ -40,7 +41,7 @@ export default function Missions() {
 
   return (
     <div className="container">
-      <h1 className="title is-2 mt-4 has-text-centered">Nos missions</h1>
+      <h1 className="titleTest">Nos missions</h1>
       <hr className="divider" />
       {posts.map((mission, index) => (
         <div key={mission.node.id}>
