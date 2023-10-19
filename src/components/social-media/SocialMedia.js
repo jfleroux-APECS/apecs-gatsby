@@ -9,12 +9,10 @@ import {
   WhatsappIcon,
   WhatsappShareButton,
 } from "react-share";
-import {MobileView} from "react-device-detect";
 
 export default function SocialMedia(props) {
   const location = "https://www.asso-apecs.org/";
     return (
-      <MobileView>
         <div className="container">
           <FacebookShareButton url={location} quote={props.title}>
             <FacebookIcon size={32} round />
@@ -29,6 +27,5 @@ export default function SocialMedia(props) {
             <WhatsappIcon size={32} round />
           </WhatsappShareButton>
         </div>
-      </MobileView>
     );
 };
