@@ -13,7 +13,7 @@ import {isMobile} from 'react-device-detect';
 
 export default function SocialMedia(props) {
   const location = "https://www.asso-apecs.org/";
-  if(isMobile) {
+  if (isMobile) {
     return (
       <div className="container">
         <FacebookShareButton url={location} quote={props.title}>
@@ -31,4 +31,5 @@ export default function SocialMedia(props) {
       </div>
     );
   }
-}
+  return ();
+};
