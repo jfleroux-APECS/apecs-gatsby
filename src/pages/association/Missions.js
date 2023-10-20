@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import replaceWPCss from "../../utils/ReplaceWPCss";
 import ArticleAssociation from "../../components/article/ArticleAssociation";
 
 export default function Missions() {
@@ -42,7 +41,7 @@ export default function Missions() {
     <ArticleAssociation
       title={mission.node.title}
       featuredImage={mission.node.featuredImage}
-      content={replaceWPCss(mission.node.content)}
+      content={mission.node.content}
     ></ArticleAssociation>
   );
 }
