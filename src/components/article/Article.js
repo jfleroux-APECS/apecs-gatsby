@@ -10,7 +10,7 @@ export default function Article(props) {
       <article className="notification article-background mt-5">
         <div className="columns">
           <div className="column">
-            <h2 className="titleApecs1">{parse(props.title)}</h2>
+            <h2 className="title">{parse(props.title)}</h2>
           </div>
           <div className="column has-text-right">
             <SocialMedia title={props.title}></SocialMedia>
