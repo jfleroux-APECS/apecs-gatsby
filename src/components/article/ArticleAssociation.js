@@ -12,9 +12,6 @@ export default function ArticleAssociation(props) {
           <div className="columns">
             <h2 className="titleBannerLeft">{parse(props.title)}</h2>
           </div>
-          <div className="column has-text-right">
-            <SocialMedia title={props.title}></SocialMedia>
-          </div>
         </div>
         {parse(replaceWPCss(props.content))}
       </article>
