@@ -7,14 +7,14 @@ html  {
   font-family: "Aileron", sans-serif; 
 }
 
-.thiblayout {
+.titleBannerLeft {
   color: #0b5aa6;
   font-family: $title-family;
   font-weight: bold;
-  font-size: 7rem;
+  font-size: 6rem;
   position: fixed;
   left: -10px;
-  top: 90px;
+  top: 100px;
   writing-mode: vertical-lr;
   transform: rotate(180deg);
   white-space: nowrap;
