@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import replaceWPCss from "../utils/ReplaceWPCss";
 import ArticleAssociation from "../../components/article/ArticleAssociation";
 
 export const pageQuery = graphql`
