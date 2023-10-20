@@ -47,6 +47,7 @@ export default function Missions() {
         <div key={mission.node.id}>
           <ArticleAssociation
             title={mission.node.title}
+            featuredImage={post.featuredImage}
             content={mission.node.content}
           ></ArticleAssociation>
           <div className="divider is-info" />
