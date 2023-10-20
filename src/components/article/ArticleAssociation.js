@@ -11,7 +11,11 @@ export default function ArticleAssociation(props) {
           id="hero"
           className="hero is-large background-hero"
           style={{
-            background:"url(" + props.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src + ") center center no-repeat fixed",
+            background:
+              "url(" +
+              props.featuredImage.node.localFile.childImageSharp.gatsbyImageData
+                .images.fallback.src +
+              ") center center no-repeat fixed",
           }}
         >
           <div className="hero-body"></div>
