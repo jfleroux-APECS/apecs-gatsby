@@ -4,7 +4,7 @@ export default function replaceWPCss(WPContent) {
   return WPContent.replaceAll("wp-block-columns", "columns")
     .replaceAll("wp-block-column", "column")
   {/*.replaceAll("<p></p>", "<br/>")*/}
-    .replaceAll("<p></p>", '<p class="pApecs my-1"')
+    .replaceAll("<p", '<p class="pApecs my-1"')
     .replaceAll("<h3", '<h3 class="titleApecs2 my-1"')
     .replaceAll("<h2", '<h2 class="titleApecs2 my-3"')
     .replaceAll("has-text-align-center", "has-text-centered content my-2")
