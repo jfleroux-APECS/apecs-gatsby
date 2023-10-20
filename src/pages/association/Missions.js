@@ -38,13 +38,15 @@ export default function Missions() {
     }
   `);
   return (
-    {posts.map((mission, index) => (
-    <div key={mission.node.id}>
-      <ArticleAssociation
-        title={mission.node.title}
-        featuredImage={mission.node.featuredImage}
-        content={mission.node.content}
-      ></ArticleAssociation>
+    <div className="container">
+      {posts.map((mission, index) => (
+      <div key={mission.node.id}>
+        <ArticleAssociation
+          title={mission.node.title}
+          featuredImage={mission.node.featuredImage}
+          content={mission.node.content}
+        ></ArticleAssociation>
+      </div>
     </div>
   );
 }
