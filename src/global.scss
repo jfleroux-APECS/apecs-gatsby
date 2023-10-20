@@ -1,4 +1,5 @@
 $title-family: "Oswald", sans-serif;
+$text-family: "Aileron", sans-serif;
 
 body {
   padding-top: 5.25rem !important;
@@ -37,3 +38,9 @@ body {
   font-size: 1.5rem;
 }
 
+.pApecs {
+  color: #575756;
+  font-family: $text-family;
+  font-weight: lighter;
+  font-size: 1.5rem;
+}
