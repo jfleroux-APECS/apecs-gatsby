@@ -6,20 +6,6 @@ import replaceWPCss from "../../utils/ReplaceWPCss";
 export default function ArticleAssociation(props) {
   return (
     <div>
-      {props.featuredImage && (
-        <section
-          id="hero"
-          className="hero is-large background-hero"
-          style={{
-            background:
-              "url(" +
-              props.featuredImage +
-              ") center center no-repeat fixed",
-          }}
-        >
-          <div className="hero-body"></div>
-        </section>
-      )}
       <div className="container article-container">
         <article className="notification article-background mt-5">
           <div className="columns is-mobile has-text-centered mb-6">
