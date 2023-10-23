@@ -12,8 +12,7 @@ export default function ArticleAssociation(props) {
           id="hero"
           className="hero is-large background-hero"
           style={{
-            background:
-              "url(${background}) center center no-repeat fixed",
+            backgroundImage: "url(${background}) center center no-repeat fixed",
           }}
         >
           <div className="hero-body"></div>
