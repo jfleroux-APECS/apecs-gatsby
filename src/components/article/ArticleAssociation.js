@@ -7,9 +7,6 @@ import background from "../../images/missions-background.png";
 export default function ArticleAssociation(props) {
   return (
     <div>
-      <div className="banner">
-        <img src={background} />
-      </div>
       <div className="container article-container">
         <article className="notification article-background mt-5">
           <div className="columns is-mobile has-text-centered mb-6">
