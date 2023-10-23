@@ -70,7 +70,8 @@ ul {
 }
 
 .banner {
-  width: 100%;
-  height:60px;
-  overflow:hidden;
+  background-image: url(../../images/missions-background.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
