@@ -7,17 +7,9 @@ import background from "../../images/missions-background.png";
 export default function ArticleAssociation(props) {
   return (
     <div>
-      {props.featuredImage && (
-        <section
-          id="hero"
-          className="hero is-large background-hero"
-          style={{
-            backgroundImage: "url(${background}) center center no-repeat fixed",
-          }}
-        >
-          <div className="hero-body"></div>
-        </section>
-      )}
+      <div className="banner">
+        <img src={background} />
+      </div>
       <div className="container article-container">
         <article className="notification article-background mt-5">
           <div className="columns is-mobile has-text-centered mb-6">
