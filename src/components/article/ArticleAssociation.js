@@ -13,8 +13,7 @@ export default function ArticleAssociation(props) {
           style={{
             background:
               "url(" +
-              props.featuredImage.node.localFile.childImageSharp.gatsbyImageData
-                .images.fallback.src +
+              props.featuredImage +
               ") center center no-repeat fixed",
           }}
         >
