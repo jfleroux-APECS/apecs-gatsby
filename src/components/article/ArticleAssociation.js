@@ -2,7 +2,6 @@ import React from "react";
 import "./articleassociation.scss";
 import parse from "html-react-parser";
 import replaceWPCss from "../../utils/ReplaceWPCss";
-import background from "../../images/missions-background.png";
 
 export default function ArticleAssociation(props) {
   return (
