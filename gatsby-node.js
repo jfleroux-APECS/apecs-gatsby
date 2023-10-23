@@ -9,7 +9,6 @@ const path = require(`path`);
 exports.createPages = async (gatsbyUtilities) => {
   // Query our posts from the GraphQL server
   const actions = await getActionsPosts(gatsbyUtilities);
-  const missions = await getMissionsPosts(gatsbyUtilities);
   
   console.log(`creating ${actions.length} pages`);
 
@@ -20,7 +19,6 @@ exports.createPages = async (gatsbyUtilities) => {
 
   // If there are posts, create pages for them
   await createActionsPages({ posts: actions, gatsbyUtilities });
-  await createMissionsPages({ posts: missions, gatsbyUtilities });
 };
 
 /**
@@ -55,34 +53,6 @@ const createActionsPages = async ({ posts, gatsbyUtilities }) =>
     )
   );
 
-const createMissionsPages = async ({ posts, gatsbyUtilities }) =>
-  Promise.all(
-    posts.map(({ previous, post, next }) =>
-      // createPage is an action passed to createPages
-      // See https://www.gatsbyjs.com/docs/actions#createPage for more info
-      gatsbyUtilities.actions.createPage({
-        // Use the WordPress uri as the Gatsby page path
-        // This is a good idea so that internal links and menus work 👍
-        path: `/nos-missions/${slugify(post.title)}`,
-
-        // use the blog post template as the page component
-        component: path.resolve(`./src/components/article/ArticleAssociation.js`),
-
-        // `context` is available in the template as a prop and
-        // as a variable in GraphQL.
-        context: {
-          // we need to add the post id here
-          // so our blog post template knows which blog post
-          // the current page is (when you open it in a browser)
-          id: post.id,
-
-          // We also use the next and previous id's to query them and add links!
-          previousPostId: previous ? previous.id : null,
-          nextPostId: next ? next.id : null,
-        },
-      })
-    )
-  );
 /**
  * This function queries Gatsby's GraphQL server and asks for
  * All WordPress blog posts. If there are any GraphQL error it throws an error
@@ -99,45 +69,6 @@ async function getActionsPosts({ graphql, reporter }) {
         sort: { date: DESC }
         filter: {
           categories: { nodes: { elemMatch: { slug: { eq: "actions" } } } }
-        }
-      ) {
-        edges {
-          previous {
-            id
-          }
-          # note: this is a GraphQL alias. It renames "node" to "post" for this query
-          # We're doing this because this "node" is a post! It makes our code more readable further down the line.
-          post: node {
-            id
-            title
-          }
-          next {
-            id
-          }
-        }
-      }
-    }
-  `);
-
-  if (graphqlResult.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading your blog posts`,
-      graphqlResult.errors
-    );
-    return;
-  }
-
-  return graphqlResult.data.allWpPost.edges;
-}
-
-async function getMissionsPosts({ graphql, reporter }) {
-  const graphqlResult = await graphql(/* GraphQL */ `
-    query WpPosts {
-      # Query all WordPress blog posts sorted by date
-      allWpPost(
-        sort: { date: DESC }
-        filter: {
-          categories: { nodes: { elemMatch: { slug: { eq: "nos-missions" } } } }
         }
       ) {
         edges {
