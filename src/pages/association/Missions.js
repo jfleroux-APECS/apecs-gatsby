@@ -6,7 +6,7 @@ export default function Missions() {
   const {
     allWpPost: { edges: posts },
   } = useStaticQuery(graphql`
-    query AssociationPostQuery {
+    query MissionsPostQuery {
       allWpPost(
         filter: {
           categories: { nodes: { elemMatch: { slug: { eq: "nos-missions" } } } }
@@ -39,15 +39,13 @@ export default function Missions() {
   `);
   return (
     <div className="container">
-      {posts.map((mission, index) => (
-        <div key={mission.node.id}>
-          <ArticleAssociation
-            title={mission.node.title}
-            featuredImage={mission.node.featuredImage}
-            content={mission.node.content}
-          ></ArticleAssociation>
-        </div>
-      ))}
+      <div key={posts[0].node.id}>
+        <ArticleAssociation
+          title={posts[0].node.title}
+          featuredImage={posts[0].node.featuredImage}
+          content={posts[0].node.content}
+        ></ArticleAssociation>
+      </div>
     </div>
   );
 }
