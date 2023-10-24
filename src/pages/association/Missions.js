@@ -43,7 +43,7 @@ export default function Missions() {
       <div style={{ 
         backgroundImage: `url(${background})`,
         backgroundRepeat: no-repeat,
-        backgroundPosition: center center,
+        backgroundPosition: center,
         backgroundSize: cover,
       }}>
         <ArticleAssociation
