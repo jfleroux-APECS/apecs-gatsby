@@ -42,7 +42,6 @@ export default function Missions() {
       <div key={posts[0].node.id}>
         <ArticleAssociation
           title={posts[0].node.title}
-          featuredImage={posts[0].node.featuredImage}
           content={posts[0].node.content}
         ></ArticleAssociation>
       </div>
