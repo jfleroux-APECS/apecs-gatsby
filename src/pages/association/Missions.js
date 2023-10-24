@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import ArticleAssociation from "../../components/article/ArticleAssociation";
+import background from "../../images/missions-background.png";
 
 export default function Missions() {
   const {
@@ -39,7 +40,7 @@ export default function Missions() {
   `);
   return (
     <div className="container">
-      <div key={posts[0].node.id}>
+      <div style={{ backgroundImage: `url(${background})` }}>
         <ArticleAssociation
           title={posts[0].node.title}
           content={posts[0].node.content}
