@@ -40,7 +40,7 @@ export default function Missions() {
   `);
   return (
     <div className="container">
-      <img src={Background} alt="Missions" />
+      <img src={Background} />
         <ArticleAssociation
           title={posts[0].node.title}
           content={posts[0].node.content}
