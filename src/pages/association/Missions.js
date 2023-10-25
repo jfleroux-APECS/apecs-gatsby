@@ -41,14 +41,10 @@ export default function Missions() {
   
   return (
     <div className="container">
-      <div className="banner">
-      </div>
-      <div>
-        <ArticleAssociation
-          title={posts[0].node.title}
-          content={posts[0].node.content}
-        ></ArticleAssociation>
-      </div>
+      <ArticleAssociation
+        title={posts[0].node.title}
+        content={posts[0].node.content}
+      ></ArticleAssociation>
     </div>
   );
 }
