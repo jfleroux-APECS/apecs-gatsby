@@ -7,7 +7,7 @@ export default function ArticleAssociation(props) {
   return (
     <div>
       <div className="container article-container">
-        <article className="notification article-background mt-5">
+        <article>
           <div className="columns is-mobile has-text-centered mb-6">
             <div className="columns">
               <h2 className="titleBannerLeft">{parse(props.title)}</h2>
