@@ -41,10 +41,23 @@ export default function Missions() {
   
   return (
     <div className="container">
+      <div>
+        {
+        showImage &&
+        <img
+          src={Background}
+          style={{
+            maxWidth: "100%",
+            maxHeight: "100%",
+            transform: "scale(-50%, -50%)"
+          }}
+          alt="missions"
+        />
+        }
+      </div>
       <ArticleAssociation
         title={posts[0].node.title}
         content={posts[0].node.content}
-        banner={Background}
       ></ArticleAssociation>
     </div>
   );
