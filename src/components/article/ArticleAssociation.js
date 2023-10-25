@@ -7,7 +7,6 @@ export default function ArticleAssociation(props) {
   return (
     <div>
       <div className="container article-container">
-        <img src={parse(props.banner)} alt='banner' />
         <article>
           <div className="columns is-mobile has-text-centered mb-6">
             <div className="columns">
