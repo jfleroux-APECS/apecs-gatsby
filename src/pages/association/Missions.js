@@ -44,7 +44,7 @@ export default function Missions() {
         backgroundImage:`url(${Background})`, 
         backgroundRepeat:"no-repeat",
         backgroundPosition:"center",
-        backgroundSize:"cover",         
+        backgroundSize:"cover"         
       }}>
         <ArticleAssociation
           title={posts[0].node.title}
