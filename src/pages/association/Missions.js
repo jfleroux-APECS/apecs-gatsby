@@ -41,10 +41,7 @@ export default function Missions() {
   return (
     <div className="container">
       <div style={{ 
-        backgroundImage:`url(${Background})`, 
-        backgroundRepeat:"no-repeat",
-        backgroundPosition:"center",
-        backgroundSize:"cover"         
+        backgroundImage:`url(${Background})`
       }}>
         <ArticleAssociation
           title={posts[0].node.title}
