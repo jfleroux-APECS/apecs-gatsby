@@ -40,12 +40,11 @@ export default function Missions() {
   `);
   return (
     <div className="container">
-      <div style={{ backgroundImage: `url(${Background})`,backgroundRepeat:"no-repeat",backgroundSize:"cover" }}>
+      <img src={Background} alt="Missions" />
         <ArticleAssociation
           title={posts[0].node.title}
           content={posts[0].node.content}
         ></ArticleAssociation>
-      </div>
     </div>
   );
 }
