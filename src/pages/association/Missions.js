@@ -38,7 +38,7 @@ export default function Missions() {
       }
     }
   `);
-  
+
   return (
     <div className="container">
       <img src={Background} alt="mission" />
