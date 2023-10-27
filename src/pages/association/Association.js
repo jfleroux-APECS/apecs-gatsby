@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import BannerMiss from "../../images/mission-banner.png";
+import BannerMiss from "../../images/missions-fullHD.png";
 import parse from "html-react-parser";
 import replaceWPCss from "../../utils/ReplaceWPCss";
 import "./Association.scss";
