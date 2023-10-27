@@ -21,10 +21,14 @@ $title-family: "Oswald", sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 10 px;
+    height: 250px;
     background-color: white;
   }
 
-.bannerImg {
+.banner img {
+  height: 350px;
+  width: 100%;
   object-fit: cover;
+  position: absolute;
+  top: 0px;
 }

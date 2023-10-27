@@ -1,12 +1,17 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import Article from "../../components/article/Article";
+import BannerMiss from "../../images/mission-banner.png";
+import parse from "html-react-parser";
 import replaceWPCss from "../../utils/ReplaceWPCss";
-import "../app.scss";
+import "./Association.scss";
+
+function WPcontentAsso(props) {
+  return <div>{parse(replaceWPCss(props.content))}</div>;
+}
 
 export default function Association() {
   const {
-    allWpPost: { edges: postsAsso },
+    allWpPost: { edges: posts },
   } = useStaticQuery(graphql`
     query AssociationPostQuery {
       allWpPost(
@@ -41,15 +46,19 @@ export default function Association() {
   `);
 
   return (
-    <div className="container">
-      <h1 className="title is-2 mt-4 has-text-centered">L'association</h1>
-      <hr className="divider" />
-      <div key={postsAsso[0].node.id}>
-        <Article
-          title={postsAsso[0].node.title}
-          content={postsAsso[0].node.content}
-        ></Article>
-        <div className="divider is-info" />
+    <div>
+      <div className="banner">
+        <img src={BannerMiss} alt="Mission-banner" />
+      </div>
+      <div className="container">
+        <div className="container">
+          <div className="columns is-mobile has-text-centered mb-6">
+            <div className="columns">
+              <h2 className="titleBannerLeft">{posts[0].node.title}</h2>
+            </div>
+          </div>
+          <WPcontentAsso content={posts[0].node.content}></WPcontentAsso>
+        </div>
       </div>
     </div>
   );
