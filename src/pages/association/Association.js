@@ -1,8 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import replaceWPCss from "../../utils/ReplaceWPCss";
-import "../app.scss"
-
+import "../app.scss";
 
 export default function Association() {
   const {
@@ -39,9 +38,6 @@ export default function Association() {
       }
     }
   `);
-
-
-export default function Missions() {
   const {
     allWpPost: { edges: postsMiss },
   } = useStaticQuery(graphql`
@@ -59,7 +55,7 @@ export default function Missions() {
             featuredImage {
               node {
                 altText
-                 localFile {
+                localFile {
                   childImageSharp {
                     gatsbyImageData(
                       quality: 100
@@ -76,9 +72,6 @@ export default function Missions() {
       }
     }
   `);
-
-
-export default function NosEquipes() {
   const {
     allWpPost: { edges: postsTeam },
   } = useStaticQuery(graphql`
@@ -112,9 +105,8 @@ export default function NosEquipes() {
         }
       }
     }
-  `);    
+  `);
 
-  
   return (
     <div className="container">
       <h1 className="title is-2 mt-4 has-text-centered">L'association</h1>
