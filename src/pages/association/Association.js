@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import Article from "../../components/article/Article";
 import replaceWPCss from "../../utils/ReplaceWPCss";
 import "../app.scss";
 
