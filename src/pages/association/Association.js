@@ -43,10 +43,10 @@ export default function Association() {
     <div className="container">
       <h1 className="title is-2 mt-4 has-text-centered">L'association</h1>
       <hr className="divider" />
-      <div key={posts[0].node.id}>
+      <div key={postsAsso[0].node.id}>
         <Article
-          title={posts[0].node.title}
-          content={posts[0].node.content}
+          title={postsAsso[0].node.title}
+          content={postsAsso[0].node.content}
         ></Article>
         <div className="divider is-info" />
       </div>
