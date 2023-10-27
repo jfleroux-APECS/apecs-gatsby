@@ -105,8 +105,9 @@ export default function Association() {
         }
       }
     }
-  `);
+  `);    
 
+  
   return (
     <div className="container">
       <h1 className="title is-2 mt-4 has-text-centered">L'association</h1>
