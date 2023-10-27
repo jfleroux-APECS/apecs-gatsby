@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+$title-family: "Oswald", sans-serif;
+
+.titleBannerLeft {
+    color: #0b5aa6;
+    font-family: $title-family;
+    font-weight: bold;
+    font-size: 6rem;
+    position: fixed;
+    left: -10px;
+    top: 100px;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    opacity: 0.2;
+    text-transform: uppercase;
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10 px;
+    background-color: white;
+  }
+
+.bannerImg {
+  object-fit: cover;
+}
