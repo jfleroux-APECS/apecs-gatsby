@@ -6,27 +6,29 @@ $title-family: "Oswald", sans-serif;
     color: #0b5aa6;
     font-family: $title-family;
     font-weight: bold;
-    font-size: 6rem;
+    font-size: 5rem;
     position: fixed;
     left: -10px;
     top: 100px;
     writing-mode: vertical-lr;
     transform: rotate(180deg);
     white-space: nowrap;
-    opacity: 0.2;
+    opacity: 0.25;
     text-transform: uppercase;
-}
+    background-color: white;
+    background-clip: border-box;
+  }
 
 .banner {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 250px;
+    height: 450px;
     background-color: white;
   }
 
 .banner img {
-  height: 350px;
+  height: 550px;
   width: 100%;
   object-fit: cover;
   position: absolute;
