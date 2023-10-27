@@ -39,9 +39,6 @@ export default function Association() {
       }
     }
   `);
-
-
-export default function Missions() {
   const {
     allWpPost: { edges: postsMiss },
   } = useStaticQuery(graphql`
@@ -76,9 +73,6 @@ export default function Missions() {
       }
     }
   `);
-
-
-export default function NosEquipes() {
   const {
     allWpPost: { edges: postsTeam },
   } = useStaticQuery(graphql`
@@ -113,8 +107,6 @@ export default function NosEquipes() {
       }
     }
   `);    
-
-  
   return (
     <div className="container">
       <h1 className="title is-2 mt-4 has-text-centered">L'association</h1>
